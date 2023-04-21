@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/class-diagram
+!pragma layout smetana
+
+class Main
+class App
+class User
+class UI
+class IO
+class Series
+class Movie
+
+
+Main *-- App
+App *-- User
+App *-- UI
+App *-- IO
+App *-- Media
+Media <|-- Movie
+Media <|-- Series
+
+App : - Set<Media> media
+App : + startMenu()
+App : + mainMenu()
+
+
+@enduml
