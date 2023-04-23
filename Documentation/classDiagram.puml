@@ -9,7 +9,7 @@ class UI
 class IO
 class Series
 class Movie
-
+abstract Media
 
 Main *-- App
 App *-- User
@@ -22,6 +22,5 @@ Media <|-- Series
 App : - Set<Media> media
 App : + startMenu()
 App : + mainMenu()
-
 
 @enduml

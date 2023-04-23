@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/class-diagram
+!pragma layout smetana
+
+package "Utility classes"{
+class Main
+class UserInterface
+class InputOutput
+}
+
+package "Entity classes"{
+class Movies
+class Series
+abstract Media
+class Application
+class User
+}
+
+Application *-- UserInterface
+Application *-- InputOutput
+Main *-- Application
+Application *-- User
+Application *-- Media
+Media <|-- Series
+Media <|-- Movies
+
+@enduml
