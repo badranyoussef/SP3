@@ -2,26 +2,31 @@
 'https://plantuml.com/class-diagram
 !pragma layout smetana
 
+'Utility Package
 package "Utility classes"{
 class Main
 class UserInterface
 class InputOutput
 }
 
+'Entity Package
 package "Entity classes"{
-class Movies
-class Series
-abstract Media
+class Movie
+class Serie
 class Application
 class User
+abstract Media
 }
 
+'Class Relations
 Application *-- UserInterface
 Application *-- InputOutput
-Main *-- Application
 Application *-- User
 Application *-- Media
-Media <|-- Series
-Media <|-- Movies
+Media <|-- Serie
+Media <|-- Movie
+Main *-- Application
+
+'Class Methods & Attributes
 
 @enduml
