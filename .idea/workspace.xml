@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="64577a79-e5c1-47f5-aec6-f25936b61ab8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/classDiagramUpdated.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/classDiagramUpdated.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/userdata.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/userdata.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SP3/Entity/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Entity/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SP3/Entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SP3/Utility/IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Utility/IO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utility/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utility/IO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +59,20 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Client.Main" />
+      <module name="SP3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -72,5 +94,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -9,16 +9,11 @@ import java.util.List;
 import java.util.Set;
 
 public class Application {
-    private List<User> users = ;
+    private List<User> users = new ArrayList<>();
     private Set<Media> medias;
-    private IO io;
-    private UI ui;
-
-    public void launchApplication(){
-
-
     private IO io = new IO();
     private UI ui = new UI();
+
     public void launchApplication(){
         startMenu();
     }
@@ -27,31 +22,46 @@ public class Application {
         if(input.equals("1")){
             createUser();
         } else if(input.equals(2)){
-            login();
+            String u = ui.getInput("Type username:");
+            String p = ui.getInput("Type password:");
+            login(u,p);
         } else{
             ui.displayMessage("Try again");
             startMenu();
         }
     }
     public void createUser(){
-
+        String name = ui.getInput("What is your name?");
+        String username = ui.getInput("Create username");
+        String password = ui.getInput("Create password");
+        getUsers().add(new User(name,username,password));
+        io.saveData("data/userdata.csv", this.users);
     }
-    public void login(){
-
+    public boolean login(String username, String password){
+        for(User u : this.users){
+            if(u.getUserName().equals(username) && u.getPassword().equals(password)){
+                return true;
+            }
+        }
+        return false;
     }
     public void mainMenu(){
 
     }
-    public Media search(String input){
+    /*public Media search(String input){
         //todo: add return statement
     }
     public Set<Media> filter(int i){
         //todo: add return statement
-    }
+    }*/
     public void chooseMedia(){
 
     }
     public void playMedia(){
 
+    }
+
+    public List<User> getUsers() {
+        return users;
     }
 }

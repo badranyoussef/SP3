@@ -3,6 +3,7 @@ package Entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class User {
 
@@ -11,8 +12,8 @@ public class User {
     private String userName;
     private String password;
 
-    private List<Media> watched;
-    private List<Media> saved;
+    private Set<Media> watched;
+    private Set<Media> saved;
 
 
     //Public constructor to create a user.
@@ -70,11 +71,11 @@ public class User {
         }
         return checkPassword(password);
     }
-    public List<Media> getWatched() {
+    public Set<Media> getWatched() {
         return watched;
     }
 
-    public List<Media> getSaved() {
+    public Set<Media> getSaved() {
         return saved;
     }
     public void addMedia(Media m){
