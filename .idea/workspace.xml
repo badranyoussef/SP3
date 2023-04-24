@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="64577a79-e5c1-47f5-aec6-f25936b61ab8" name="Changes" comment="" />
     <list default="true" id="64577a79-e5c1-47f5-aec6-f25936b61ab8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test/Entity/ApplicationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SP3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SP3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.java" afterDir="false" />
     </list>
+    <list default="true" id="64577a79-e5c1-47f5-aec6-f25936b61ab8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,23 +53,6 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="Entity" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="Client.Main" />
-      <module name="SP3" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
