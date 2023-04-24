@@ -8,5 +8,6 @@ public class Main {
         Application streaming = new Application();
         //streaming.launchApplication();
         streaming.mainMenu();
+        streaming.chooseMedia();
     }
 }

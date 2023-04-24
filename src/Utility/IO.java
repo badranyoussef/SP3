@@ -33,7 +33,7 @@ public class IO {
     }
 
     // A method to save new users
-    public void saveData(String path, List<User> userList) {
+    public void saveUsers(String path, List<User> userList) {
         FileWriter writer = null;
         try {
             writer = new FileWriter(path, true);

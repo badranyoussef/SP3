@@ -20,6 +20,10 @@ public abstract class Media {
         ii++;
     }
 
+    public int getI() {
+        return this.i;
+    }
+
     public String getTitle() {
         return title;
     }

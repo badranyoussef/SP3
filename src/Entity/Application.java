@@ -41,7 +41,7 @@ public class Application {
         String username = ui.getInput("Create username");
         String password = ui.getInput("Create password");
         getUsers().add(new User(name, username, password));
-        io.saveData("data/userdata.csv", this.users);
+        io.saveUsers("data/userdata.csv", this.users);
         users.add(new User(name, username, password));
     }
 
@@ -77,7 +77,9 @@ public class Application {
         //todo: add return statement
     }*/
     public void chooseMedia() {
-
+        int i = Integer.parseInt(ui.getInput("Which would you like to choose? Use numbers please shown left for the movie"));
+        List<Media> m = io.readMovieData();
+        System.out.println("The following have been chosen "+m.get(i-1));
     }
 
     public void playMedia() {
