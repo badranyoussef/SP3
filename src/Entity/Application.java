@@ -10,7 +10,7 @@ import java.util.Set;
 
 
 public class Application {
-    private List<User> users = new ArrayList<>();
+    private List<User> users;
     private Set<Media> medias = new HashSet<>();
     private IO io = new IO();
     private UI ui = new UI();

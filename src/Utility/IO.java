@@ -16,15 +16,10 @@ public class IO {
     private List<Media> list = new ArrayList<>();
 
     // A method to read the user data saved in the application
-    public List<User> readUserData(String path) {
 
+    public List<User> readUserData(String path) {
         file = new File(path);
         List<User> data = new ArrayList<>();
-
-
-    public List<String> readData(String path) {
-        file = new File(path);
-        List<String> data = new ArrayList<>();
         try {
             scan = new Scanner(file);
             scan.nextLine(); // ignore header in csv
