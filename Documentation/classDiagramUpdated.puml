@@ -32,6 +32,7 @@ Media <|-- Movie
 Main *-- Application
 
 'Class Methods & Attributes
+Application : + void launchApplication()
 
 User : - String name
 User : - String userName
