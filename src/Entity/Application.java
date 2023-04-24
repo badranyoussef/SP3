@@ -14,7 +14,6 @@ public class Application {
     private IO io;
     private UI ui;
 
-    Movie movies;
     public void launchApplication(){
 
 
