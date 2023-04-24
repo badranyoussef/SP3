@@ -1,10 +1,12 @@
 package Utility;
 
+import Entity.User;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class IO {
@@ -45,7 +47,7 @@ public class IO {
             writer.write("name, balance \n");
 
             for (User u : userList) {
-                writer.write(u.getName() + "," + u.getUserName()+ "," + u.getPassword + "\n");
+                writer.write(u.getName() + "," + u.getUserName()+ "," + u.getPassword() + "\n");
             }
 
             writer.close();
