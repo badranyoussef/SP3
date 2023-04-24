@@ -11,14 +11,14 @@ import java.util.Scanner;
 
 public class IO {
 
-    File file;
-    Scanner scan;
+    private File file;
+    private Scanner scan;
 
     // A method to read the user data saved in the application
-    public ArrayList<String> readUserData(String path) {
+    public List<String> readUserData(String path) {
 
         file = new File(path);
-        ArrayList<String> data = new ArrayList<>();
+        List<String> data = new ArrayList<>();
 
 
         try {
