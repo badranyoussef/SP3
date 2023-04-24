@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64577a79-e5c1-47f5-aec6-f25936b61ab8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/classDiagramUpdated.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/classDiagramUpdated.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/userdata.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/userdata.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SP3/Entity/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Entity/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SP3/Entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SP3/Utility/IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Utility/IO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utility/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utility/IO.java" afterDir="false" />
-    </list>
+    <list default="true" id="64577a79-e5c1-47f5-aec6-f25936b61ab8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,6 +51,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\baban\OneDrive\Skrivebord\GitHub\Flow 4\SP3\src" />
       <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
@@ -89,6 +80,10 @@
       <workItem from="1682265228589" duration="620000" />
       <workItem from="1682315680204" duration="525000" />
       <workItem from="1682316243841" duration="2529000" />
+      <workItem from="1682338843020" duration="1111000" />
+      <workItem from="1682345416935" duration="1464000" />
+      <workItem from="1682355005402" duration="1276000" />
+      <workItem from="1682357668503" duration="774000" />
     </task>
     <servers />
   </component>

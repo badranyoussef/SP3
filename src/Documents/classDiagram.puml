@@ -71,12 +71,14 @@ User : + void addMedia(Media m)
 
 InputOutput : - File file
 InputOutput : - Scanner scan
-InputOutput : + String readUserData (List<String>)
-InputOutput : + String saveData (List<String>)
+InputOutput : - List<Media> list = new ArrayList<>()
+InputOutput : + List<String> readData (String path)
+InputOutput : + void saveUsers (String path, List<User> userList)
+InputOutput : + List<Media> readMovieData()
 
 UserInterface : - Scanner scan = new Scanner (System.in)
-UserInterface : + void displayMessage(String)
-UserInterface : + String getInput(String)
+UserInterface : + void displayMessage(String msg)
+UserInterface : + String getInput(String msg)
 
 Media : - Scanner scan = new Scanner (System.in)
 Media : - String category
