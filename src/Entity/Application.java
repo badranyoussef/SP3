@@ -17,7 +17,6 @@ public class Application {
     public Application(){
         this.users = io.readUserData("data/userdata.csv"); //ny app skal instantieres med eksisterende brugerdata.
     }
-    public void launchApplication(){
 
     public void launchApplication() {
         startMenu();
