@@ -37,15 +37,15 @@ public class IO {
     }
 
     // A method to save new users
-    public void saveData(String path, ArrayList<Player> players) {
+    public void saveData(String path, List<User> userList) {
         FileWriter writer = null;
         try {
             writer = new FileWriter(path);
 
             writer.write("name, balance \n");
 
-            for (Player p : players) {
-                writer.write(p.getName() + "," + p.getBalance() + "\n");
+            for (User u : userList) {
+                writer.write(u.getName() + "," + u.getUserName()+ "," + u.getPassword + "\n");
             }
 
             writer.close();
