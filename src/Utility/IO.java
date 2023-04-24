@@ -60,4 +60,31 @@ public class IO {
 
     }
 
+    public void readMovieData() {
+        String title = "";
+        int releaseYear = 0;
+        String category = "";
+        float rating = 0;
+
+        List<String> movies = readUserData("/Users/youssefbadran/Documents/GitHub/SP3/data/movies.txt");
+
+        for (String m : movies) {
+            String line = scan.nextLine();
+            String[] arrLine = line.split(";", 5);
+            if (arrLine.length >= 4) { // Check the length of arrLine before accessing its elements
+                title = arrLine[0];
+                releaseYear = Integer.parseInt(arrLine[1]);
+                category = arrLine[2];
+                rating = Float.parseFloat(arrLine[3]);
+                System.out.println(title + category + rating);
+                //movie = new Movie(title, category, rating, releaseYear);
+                //medias.add(movie);
+            } else {
+                System.out.println("Invalid input: " + line); // Print an error message if arrLine is too short
+            }
+        }
+
+    }
+
+
 }
