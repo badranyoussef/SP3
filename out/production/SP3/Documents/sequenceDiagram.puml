@@ -1,0 +1,13 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+!pragma layout smetana
+
+(Main) <-- (App)
+(App) <-- (User)
+(App) <-- (Media)
+(App) <-- (UI)
+(App) <-- (IO)
+(Media) <-- (Series)
+(Media) <-- (Movie)
+
+@enduml

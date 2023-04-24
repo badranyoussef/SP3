@@ -57,7 +57,7 @@ public class IO {
         int releaseYear = 0;
         String category = "";
         float rating = 0;
-        File file = new File("src\\data\\movies.txt");
+        File file = new File("src/Data/movies.txt");
         try (Scanner scan = new Scanner(file)) {
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
