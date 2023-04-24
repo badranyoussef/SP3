@@ -5,12 +5,8 @@ import Utility.IO;
 
 public class Main {
     public static void main(String[] args) {
-        /*Application streaming = new Application();
+        Application streaming = new Application();
         streaming.launchApplication();
-        System.out.println(streaming.saveMovies());*/
-
-        IO io = new IO();
-        io.readMovieData();
-        io.print();
+        streaming.
     }
 }

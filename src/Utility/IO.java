@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class IO {
-
     private File file;
     private Scanner scan;
     List<Media> list = new ArrayList<>();
@@ -89,10 +88,5 @@ public class IO {
         return list;
     }
 
-    public void print() {
-        for (int i = 0; i < this.list.size(); i++) {
-            System.out.println(list.get(i));
-        }
-    }
 
 }

@@ -26,7 +26,6 @@ public class Application {
         String input = ui.getInput("Do you want to 1. Create user or 2. Login");
         if(input.equals("1")){
             createUser();
-            System.out.println(users);
         } else if(input.equals(2)){
             String u = ui.getInput("Type username:");
             String p = ui.getInput("Type password:");
@@ -53,7 +52,7 @@ public class Application {
         return false;
     }
     public void mainMenu(){
-
+        System.out.println("Welcome to main menu.");
     }
     /*public Media search(String input){
         //todo: add return statement
