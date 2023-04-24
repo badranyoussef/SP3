@@ -29,6 +29,8 @@ Application *-- User
 Application *-- Media
 Media <|-- Serie
 Media <|-- Movie
+InputOutput *-- Movie
+InputOutput *-- Serie
 Main *-- Application
 
 'Class Methods & Attributes

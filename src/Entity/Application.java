@@ -13,7 +13,10 @@ public class Application {
     private Set<Media> medias;
     private IO io;
     private UI ui;
+
+    Movie movies;
     public void launchApplication(){
+
 
     }
     public void startMenu(){
