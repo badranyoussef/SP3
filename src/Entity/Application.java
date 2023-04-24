@@ -17,9 +17,21 @@ public class Application {
     public void launchApplication(){
 
 
+    private IO io = new IO();
+    private UI ui = new UI();
+    public void launchApplication(){
+        startMenu();
     }
     public void startMenu(){
-
+        String input = ui.getInput("Do you want to 1. Create user or 2. Login");
+        if(input.equals("1")){
+            createUser();
+        } else if(input.equals(2)){
+            login();
+        } else{
+            ui.displayMessage("Try again");
+            startMenu();
+        }
     }
     public void createUser(){
 
