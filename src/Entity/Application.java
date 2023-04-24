@@ -41,7 +41,7 @@ public class Application {
         String username = ui.getInput("Create username");
         String password = ui.getInput("Create password");
         getUsers().add(new User(name, username, password));
-        io.saveUsers("data/userdata.csv", this.users);
+        io.saveUsers("Data/userdata.csv", this.users);
         users.add(new User(name, username, password));
     }
 

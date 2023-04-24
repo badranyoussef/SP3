@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class IO {
     private File file;
     private Scanner scan;
-    List<Media> list = new ArrayList<>();
+    private List<Media> list = new ArrayList<>();
 
     // A method to read the user data saved in the application
     public List<String> readData(String path) {

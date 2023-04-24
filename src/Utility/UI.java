@@ -3,7 +3,7 @@ package Utility;
 import java.util.Scanner;
 
 public class UI {
-    Scanner scan = new Scanner(System.in);
+    private Scanner scan = new Scanner(System.in);
 
     // A method to display a message to user
     public void displayMessage(String msg) {
