@@ -10,7 +10,9 @@ public class User {
     private String name;
     private String userName;
     private String password;
-    private List<User> userList = new ArrayList<>();
+
+    private List<Media> watched;
+    private List<Media> saved;
 
 
     //Public constructor to create a user.
@@ -20,10 +22,7 @@ public class User {
         checkPassword(password);
     }
 
-    //Public method to add user to userList.
-    public void addUserToList(User user) {
-        this.userList.add(user);
-    }
+
 
     //Public method to get the name.
     public String getName() {
@@ -40,10 +39,6 @@ public class User {
         return password;
     }
 
-    //Public method to get the userList.
-    public List<User> getUserList() {
-        return userList;
-    }
 
     //Public method to change name.
     public void changeName(String name) {
@@ -60,11 +55,6 @@ public class User {
         this.password = password;
     }
 
-    //Public method to delete from the user list.
-    public void deleteFromList(List<User> userList) {
-        this.userList = userList;
-    }
-
     //Private method to check if username can be used.
     private String checkUserName(String userName) {
         if (userName.length() > 6) {
@@ -79,5 +69,15 @@ public class User {
             return this.password = password;
         }
         return checkPassword(password);
+    }
+    public List<Media> getWatched() {
+        return watched;
+    }
+
+    public List<Media> getSaved() {
+        return saved;
+    }
+    public void addMedia(Media m){
+
     }
 }
