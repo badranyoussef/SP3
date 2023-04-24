@@ -18,14 +18,14 @@ class User
 abstract Media
 }
 
-'Class Relations
+'Label on Relations
 Application *-- UserInterface
 Application *-- InputOutput
 Application *-- User
 Application *-- Media
 Media <|-- Serie
 Media <|-- Movie
-Main *-- Application
+Main *-- "many"Application
 
 'Class Methods & Attributes
 
