@@ -2,10 +2,13 @@
 'https://plantuml.com/class-diagram
 !pragma layout smetana
 
+'Client Package
+package "Client class"{
+class Main
+}
 
 'Utility Package
 package "Utility classes"{
-class Main
 class UserInterface
 class InputOutput
 }
@@ -19,14 +22,14 @@ class User
 abstract Media
 }
 
-'Label on Relations
+'Label on Relations !MANGLER
 Application *-- UserInterface
 Application *-- InputOutput
 Application *-- User
 Application *-- Media
 Media <|-- Serie
 Media <|-- Movie
-Main "1" *-- "has "Application
+Main *-- Application
 
 'Class Methods & Attributes
 
