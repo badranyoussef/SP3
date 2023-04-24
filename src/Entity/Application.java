@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 public class Application {
-    private List<User> users;
+    private List<User> users = ;
     private Set<Media> medias;
     private IO io;
     private UI ui;
