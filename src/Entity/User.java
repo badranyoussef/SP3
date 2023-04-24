@@ -1,11 +1,15 @@
 package Entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
 
     //Three private attributes for the User.
     private String name;
     private String userName;
     private String password;
+    private List<User> userList = new ArrayList<>();
 
 
     //Public constructor to create a user.
