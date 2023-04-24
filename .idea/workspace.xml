@@ -5,14 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64577a79-e5c1-47f5-aec6-f25936b61ab8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/data/userdata.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/classDiagramUpdated.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/classDiagramUpdated.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/userdata.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/userdata.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/movies.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/movies.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/series.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/series.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/userdata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SP3/Client/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Client/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SP3/Entity/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Entity/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SP3/Entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SP3/Entity/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Entity/Movie.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SP3/Utility/IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Utility/IO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Movie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utility/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utility/IO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,6 +65,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\baban\OneDrive\Skrivebord\GitHub\Flow 4\SP3\src" />
       <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>

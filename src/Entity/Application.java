@@ -8,19 +8,25 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+
 public class Application {
     private List<User> users = new ArrayList<>();
-    private Set<Media> medias;
+    private Set<Media> medias = new HashSet<>();
     private IO io = new IO();
     private UI ui = new UI();
 
     public void launchApplication(){
         startMenu();
     }
+    /*public Set<Media> saveMovies(){
+        return medias = io.readMovieData();
+    }*/
+
     public void startMenu(){
         String input = ui.getInput("Do you want to 1. Create user or 2. Login");
         if(input.equals("1")){
             createUser();
+            System.out.println(users);
         } else if(input.equals(2)){
             String u = ui.getInput("Type username:");
             String p = ui.getInput("Type password:");
@@ -36,6 +42,7 @@ public class Application {
         String password = ui.getInput("Create password");
         getUsers().add(new User(name,username,password));
         io.saveData("data/userdata.csv", this.users);
+        users.add(new User(name,username,password));
     }
     public boolean login(String username, String password){
         for(User u : this.users){
@@ -64,4 +71,5 @@ public class Application {
     public List<User> getUsers() {
         return users;
     }
+
 }
