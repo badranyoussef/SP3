@@ -19,6 +19,42 @@ public class User {
         checkPassword(password);
     }
 
+    public void addUserToList(User user) {
+        this.userList.add(user);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void changeName(String name) {
+        this.name = name;
+    }
+
+    public void changeUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void changePassword(String password) {
+        this.password = password;
+    }
+
+    public void deleteFromList(List<User> userList) {
+        this.userList = userList;
+    }
+
     //Private method to check if username can be used.
     private String checkUserName(String userName) {
         if (userName.length() > 6) {
