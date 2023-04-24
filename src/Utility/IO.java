@@ -16,15 +16,17 @@ public class IO {
     private List<Media> list = new ArrayList<>();
 
     // A method to read the user data saved in the application
-    public List<String> readData(String path) {
+
+    public List<User> readUserData(String path) {
         file = new File(path);
-        List<String> data = new ArrayList<>();
+        List<User> data = new ArrayList<>();
         try {
             scan = new Scanner(file);
             scan.nextLine(); // ignore header in csv
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
-                data.add(line);
+                String[] values = line.split(",");
+                data.add(new User(values[0],values[1],values[2]));
             }
         } catch (FileNotFoundException e) {
             System.out.println("The file was not found");

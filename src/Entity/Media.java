@@ -3,17 +3,17 @@ package Entity;
 import java.util.Scanner;
 
 public abstract class Media {
-    private Scanner scan = new Scanner(System.in);
+    private Scanner scan = new Scanner(System.in); //Why?
     private String title;
-    private String category;
+    private String[] categories;
     private float rating;
     private int releaseYear;
-    private int i = 1;
-    private static int ii = 1;
+    private int i = 1; //Why?
+    private static int ii = 1; //Why?
 
-    Media(String title, String category, float rating, int releaseYear) {
+    Media(String title, String[] categories, float rating, int releaseYear) {
         this.title = title;
-        this.category = category;
+        this.categories = categories;
         this.rating = rating;
         this.releaseYear = releaseYear;
         this.i = ii;
@@ -28,8 +28,8 @@ public abstract class Media {
         return title;
     }
 
-    public String getCategory() {
-        return category;
+    public String[] getCategory() {
+        return categories;
     }
 
     public float getRating() {
@@ -41,7 +41,7 @@ public abstract class Media {
     }
     @Override
     public String toString() {
-        return i + ")" + " " + this.title + ", " + this.releaseYear + ", " + category + ", " + rating;
+        return i + ")" + " " + this.title + ", " + this.releaseYear + ", " + categories + ", " + rating;
     }
 
 }
