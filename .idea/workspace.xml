@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64577a79-e5c1-47f5-aec6-f25936b61ab8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/classDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Documents/classDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/sequenceDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Documents/sequenceDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utility/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utility/IO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utility/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utility/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/movies.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/movies.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/series.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/series.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/userdata.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/userdata.csv" afterDir="false" />
-    </list>
+    <list default="true" id="64577a79-e5c1-47f5-aec6-f25936b61ab8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,7 +83,7 @@
       <workItem from="1682338843020" duration="1111000" />
       <workItem from="1682345416935" duration="1464000" />
       <workItem from="1682355005402" duration="1276000" />
-      <workItem from="1682357668503" duration="748000" />
+      <workItem from="1682357668503" duration="774000" />
     </task>
     <servers />
   </component>
