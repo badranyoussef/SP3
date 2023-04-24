@@ -4,20 +4,20 @@ import java.util.Scanner;
 
 public abstract class Media {
     Scanner scan = new Scanner(System.in);
-    protected String name;
+    protected String title;
     protected String category;
     protected float rating;
     protected int releaseYear;
 
-    Media(String name, String category, float rating, int releaseYear){
-        this.name = name;
+    Media(String title, String category, float rating, int releaseYear){
+        this.title = title;
         this.category = category;
         this.rating = rating;
         this.releaseYear = releaseYear;
     }
 
-    public String getName(){
-        return name;
+    public String getTitle(){
+        return title;
     }
 
     public String getCategory(){
