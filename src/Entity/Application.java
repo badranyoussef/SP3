@@ -42,7 +42,8 @@ public class Application {
         String password = ui.getInput("Create password");
         getUsers().add(new User(name, username, password));
         io.saveUsers("data/userdata.csv", this.users);
-        users.add(new User(name, username, password));
+        
+        users.add(new User(name,username,password));
     }
 
     public boolean login(String username, String password) {
