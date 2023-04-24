@@ -3,7 +3,7 @@ package Entity;
 import java.util.Scanner;
 
 public abstract class Media {
-    private Scanner scan = new Scanner(System.in);
+    private Scanner scan = new Scanner(System.in); //Why?
     private String title;
     private String[] categories;
     private float rating;
@@ -41,7 +41,7 @@ public abstract class Media {
     }
     @Override
     public String toString() {
-        return i + ")" + " " + this.title + ", " + this.releaseYear + ", " + category + ", " + rating;
+        return i + ")" + " " + this.title + ", " + this.releaseYear + ", " + categories + ", " + rating;
     }
 
 }
