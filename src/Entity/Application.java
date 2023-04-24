@@ -13,7 +13,9 @@ public class Application {
     private Set<Media> medias;
     private IO io = new IO();
     private UI ui = new UI();
-
+    public Application(){
+        this.users = io.readUserData("data/userdata.csv"); //ny app skal instantieres med eksisterende brugerdata.
+    }
     public void launchApplication(){
         startMenu();
     }
