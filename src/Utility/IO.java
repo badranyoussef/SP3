@@ -15,7 +15,7 @@ public class IO {
     private Scanner scan;
 
     // A method to read the user data saved in the application
-    public List<String> readUserData(String path) {
+    public List<String> readData(String path) {
 
         file = new File(path);
         List<String> data = new ArrayList<>();
@@ -42,9 +42,7 @@ public class IO {
     public void saveData(String path, List<User> userList) {
         FileWriter writer = null;
         try {
-            writer = new FileWriter(path);
-
-            writer.write("name, balance \n");
+            writer = new FileWriter(path,true);
 
             for (User u : userList) {
                 writer.write(u.getName() + "," + u.getUserName()+ "," + u.getPassword() + "\n");

@@ -34,24 +34,39 @@ InputOutput *-- Serie
 Main *-- Application
 
 'Class Methods & Attributes
+Main : + Application app
+
+Application : - List<User> users
+Application : - Set<User> users
+Application : - IO io;
+Application : - UI ui;
 Application : + void launchApplication()
+Application : + void startMenu()
+Application : + void createUser()
+Application : + boolean login()
+Application : + void mainMenu()
+Application : + Media search()
+Application : + Set<Media> filter()
+Application : + void chooseMedia()
+Application : + void playMedia()
 
 User : - String name
 User : - String userName
 User : - String password
-User : - List<User> userList
+User : - Set<Media> watched
+User : - Set<Media> saved
 User : - String checkUserName(String userName)
 User : - String checkPassword(String password)
 User : + User(String name, String userName, String password)
-User : + void addUserToList(User user)
 User : + String getName()
 User : + String getUserName()
 User : + String getPassword()
-User : + (List<User> userList) getUserList()
 User : + void changeName(String name)
 User : + void changeUserName(String userName)
 User : + void changePassword(String (password)
-User : + void deleteFromList((List<User> userList)
+User : + Set<Media> getWatched()
+User : + Set<Media> getSaved()
+User : + void addMedia(Media m)
 
 
 InputOutput : - File file
