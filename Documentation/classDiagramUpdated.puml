@@ -32,5 +32,27 @@ Media <|-- Movie
 Main *-- Application
 
 'Class Methods & Attributes
+InputOutput : - File file
+InputOutput : - Scanner scan
+InputOutput : + String readUserData (List<String>)
+InputOutput : + String saveData (List<String>)
+
+UserInterface : - Scanner scan = new Scanner (System.in)
+UserInterface : + void displayMessage(String)
+UserInterface : + String getInput(String)
+
+Media : - Scanner scan = new Scanner (System.in)
+Media : - String category
+Media : - float rating
+Media : - int releaseYear
+Media : - String titel
+Media : + Media(String title, String category, float rating, int releaseYear)
+Media : + String getTitle()
+Media : + String getCategory()
+Media : + float getRating()
+Media : + int getReleaseYear()
+
+
+
 
 @enduml
