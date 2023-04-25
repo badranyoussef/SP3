@@ -42,7 +42,7 @@ public class Application {
 
     //Create user method
     public void createUser() {
-        String name = ui.getInput("Enter your name: (Go back by typing: back");
+        String name = ui.getInput("Enter your name: (Go back by typing: back)");
         if (name.equals("back")) {
             startMenu();
             return;
@@ -57,7 +57,7 @@ public class Application {
                 return;
             }
             if (username.length() < 6) {
-                System.out.println("That username is too short. Please try again. (Go back by typing: back");
+                System.out.println("That username is too short. Please try again. (Go back by typing: back)");
             } else {
                 break;
             }
@@ -70,7 +70,7 @@ public class Application {
                 return;
             }
             if (password.length() < 8) {
-                System.out.println("That password is too short. Please try again.(Go back by typing: back");
+                System.out.println("That password is too short. Please try again.(Go back by typing: back)");
             } else {
                 break;
             }
@@ -144,13 +144,8 @@ public class Application {
     }
 
     public void logout() {
-        //TOD IKKE BRUG SOUT
-        System.out.println("Thank you for using our service! See you soon!");
+        ui.displayMessage("Thank you for using our service! See you soon!");
     }
-
-
-
-
 
 
 
@@ -175,7 +170,7 @@ public class Application {
     public void chooseMedia() {
         int i = Integer.parseInt(ui.getInput("\nWhich would you like to choose? Use numbers please shown left for the movie"));
         for (Media m : medias) {
-            if (m.getid() == i) {
+            if (m.getId() == i) {
                 ui.displayMessage("The following have been chosen " + m);
             }
         }
