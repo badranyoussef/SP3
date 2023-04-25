@@ -32,7 +32,6 @@ Media <|-- Movie
 InputOutput *-- Movie
 InputOutput *-- Serie
 Main *-- Application
-User *-- UserInterface
 
 'Class Methods & Attributes
 Main : + Application app
