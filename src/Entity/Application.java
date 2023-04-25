@@ -128,12 +128,12 @@ public class Application {
             for (Media m : medias) {
                 System.out.println(m);
             }
-        } else if (input.equals(2)) {
+        } else if (input.equals("2")) {
             for(String s : categories){
                 System.out.println(s);
-                chooseCategory();
+                //chooseCategory();
             }
-        } else if (input.equals(3)){
+        } else if (input.equals("3")){
             String searchQuery = ui.getInput("Type movie title:");
             search(searchQuery);
         } else if (input.equals("4")) {
@@ -147,14 +147,22 @@ public class Application {
         System.out.println("Thank you for using our service! See you soon!");
     }
 
-    public Boolean search(String input) {
+
+
+
+
+    public Media search(String input) {
+
+        Media notFound = null;
+
         for (Media m : medias) {
-            if (!m.getTitle().equalsIgnoreCase(input)) {
+            if (m.getTitle().equalsIgnoreCase(input)) {
                 ui.displayMessage("Found movie: " + m.getTitle());
-                return false;
+                return m;
             }
         }
-        return true;
+        ui.displayMessage("The movie you are looking for does not exist");
+        return notFound;
     }
 
     /*public Set<Media> filter(int i){
