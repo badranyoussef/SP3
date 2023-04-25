@@ -147,16 +147,26 @@ public class Application {
         System.out.println("Thank you for using our service! See you soon!");
     }
 
-    public Media search(String input){
+    public Boolean search(String input) {
+        for (Media m : medias) {
+            if (!m.getTitle().equalsIgnoreCase(input)) {
+                ui.displayMessage("Found movie: " + m.getTitle());
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /*public Set<Media> filter(int i){
         //todo: add return statement
     }
-    public Set<Media> filter(int i){
-        //todo: add return statement
-    }
+    */
+
+
     public void chooseMedia() {
         int i = Integer.parseInt(ui.getInput("\nWhich would you like to choose? Use numbers please shown left for the movie"));
         for (Media m : medias) {
-            if(m.getid() == i) {
+            if (m.getid() == i) {
                 ui.displayMessage("The following have been chosen " + m);
             }
         }
