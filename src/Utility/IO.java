@@ -65,6 +65,12 @@ public class IO {
                     String ratingStr = arrLine[3].trim().replace(",", ".");
                     rating = Float.parseFloat(ratingStr);
                     Movie movie = new Movie(title /*category1.add(s)*/, rating, releaseYear);
+                    String title = arrLine[0].trim();
+                    int releaseYear = Integer.parseInt(arrLine[1].trim());
+                    String[] categories = arrLine[2].split(";");
+                    String ratingStr = arrLine[3].trim().replace(",", ".");
+                    float rating = Float.parseFloat(ratingStr);
+                    Movie movie = new Movie(title, categories, rating, releaseYear);
                     list.add(movie);
                 }
             }
