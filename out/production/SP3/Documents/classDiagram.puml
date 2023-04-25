@@ -92,4 +92,6 @@ Media : + String[] getCategories()
 Media : + float getRating()
 Media : + int getReleaseYear()
 
+Movie : + Movie(String title, String category, float rating, int releaseYear)
+
 @enduml
