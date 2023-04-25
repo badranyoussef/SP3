@@ -1,29 +1,27 @@
 package Entity;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import Utility.UI;
+
 import java.util.Set;
 
 public class User {
 
-    //Three private attributes for the User.
+    //Private attributes for the User.
     private String name;
     private String userName;
     private String password;
-
     private Set<Media> watched;
     private Set<Media> saved;
+    UI ui = new UI();
 
 
     //Public constructor to create a user.
     public User(String name, String userName, String password) {
         this.name = name;
-        checkUserName(userName);
-        checkPassword(password);
+        nameValidator(userName);
+        passwordValidator(password);
     }
-
-
 
     //Public method to get the name.
     public String getName() {
@@ -40,15 +38,9 @@ public class User {
         return password;
     }
 
-
     //Public method to change name.
     public void changeName(String name) {
         this.name = name;
-    }
-
-    //Public method to change username.
-    public void changeUserName(String userName) {
-        this.userName = userName;
     }
 
     //Public method change password.
@@ -56,32 +48,59 @@ public class User {
         this.password = password;
     }
 
+    /*
     //Private method to check if username can be used.
-    private String checkUserName(String userName) {
+    private String nameValidator(String userName) {
         if (userName.length() >= 6) {
             return this.userName = userName;
         }
-        return "Unable to create user. Username must be at least 6 characters long.";
+        System.out.println("That name can't be used! Try again!");
+        return nameValidator(userName);
     }
 
     //Private method to check if password can be used.
-    private String checkPassword(String password) {
+    private String passwordValidator(String password) {
         if (password.length() >= 8) {
             return this.password = password;
         }
-        return "Unable to create user. Password must be at least 8 characters long.";
+        System.out.println("That password can't be used! Try again!");
+        return passwordValidator(password);
     }
+     */
+    private String nameValidator(String userName) {
+        while (userName.length() < 6) {
+            System.out.println("That name can't be used! Try again!");
+            userName = ui.getInput("Write your username");
+        }
+        return this.userName = userName;
+    }
+
+    private String passwordValidator(String tryPassword) {
+        while (tryPassword.length() < 6) {
+            System.out.println("That password can't be used! Try again!");
+            tryPassword = ui.getInput("Write your password");
+        }
+        return this.password = tryPassword;
+    }
+
+
+    //Public method to check which medias have been watched
     public Set<Media> getWatched() {
         return watched;
     }
 
+    //Public method to check which medias have been saved
     public Set<Media> getSaved() {
         return saved;
     }
-    public void addWatchedMedia(Media m){
+
+    //Public method to add a watched media
+    public void addWatchedMedia(Media m) {
         this.watched.add(m);
     }
-    public void addSavedMedia(Media m){
+
+    //Public method to add saved media
+    public void addSavedMedia(Media m) {
         this.saved.add(m);
     }
 }
