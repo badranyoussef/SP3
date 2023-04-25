@@ -148,6 +148,12 @@ public class Application {
         System.out.println("Thank you for using our service! See you soon!");
     }
 
+
+
+
+
+
+
     public Media search(String input) {
         Media notFound = null;
         for (Media m : medias) {
@@ -156,6 +162,7 @@ public class Application {
                 return m;
             }
         }
+        ui.displayMessage("The movie you are looking for does not exist");
         return notFound;
     }
 
