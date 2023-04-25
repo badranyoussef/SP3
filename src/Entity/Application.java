@@ -159,7 +159,7 @@ public class Application {
     }
 
 
-    public  void printMediaList(ArrayList<Media> m) {
+    public void printMediaList(ArrayList<Media> m) {
         System.out.println("User: " + this.onlineUser + ": Watched: ");
         for (Media mm : m) {
             System.out.println(mm);
@@ -203,7 +203,7 @@ public class Application {
             File file = new File(user + ".txt");
 
             // Create a FileWriter object to write to the file
-            FileWriter writer = new FileWriter(file,true);
+            FileWriter writer = new FileWriter(file, true);
 
             // Write each movie in the watchlist to the file
             for (Media m : watchlist) {
@@ -220,6 +220,7 @@ public class Application {
             e.printStackTrace();
         }
     }
+
     // Load watchlist for a user
     public List<Movie> loadWatchlist(User username) {
         List<Movie> watchlist = new ArrayList<>();
@@ -243,19 +244,16 @@ public class Application {
                 watchlist.add(movie);
                 System.out.println(this.onlineUser.getWatched());
             }
-
             // Close the Scanner object
             scanner.close();
-
             System.out.println("Watchlist loaded for user: " + username);
-
         } catch (IOException e) {
             System.out.println("Error loading watchlist for user: " + username);
             e.printStackTrace();
         }
-
         return watchlist;
     }
+
     public void playMedia(Media m) {
         System.out.println("filmen er i gang");
         onlineUser.addWatchedMedia(m);

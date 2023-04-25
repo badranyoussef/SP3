@@ -31,7 +31,7 @@ public class IO {
                 data.add(new User(values[0], values[1], values[2]));
             }
         } catch (FileNotFoundException e) {
-            System.out.println("The file was not found");
+            System.out.println("The userdata.txt file was not found");
         }
         return data;
     }
