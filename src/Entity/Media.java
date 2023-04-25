@@ -1,37 +1,35 @@
 package Entity;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public abstract class Media {
-    private Scanner scan = new Scanner(System.in); //Why?
     private String title;
-    private ArrayList<String> categories;
+    private List<String> categories;
     private float rating;
     private int releaseYear;
-    private int i = 1; //Why?
-    private static int ii = 1; //Why?
+    private static int id = 0;
 
-    Media(String title/*, ArrayList<String> categories,*/, float rating, int releaseYear) {
+    Media(String title, ArrayList<String> categories, float rating, int releaseYear) {
         this.title = title;
         this.categories = categories;
         this.rating = rating;
         this.releaseYear = releaseYear;
-        this.i = ii;
-        ii++;
+        this.id++;
     }
 
-    public int getI() {
-        return this.i;
+    public int getid() {
+        return this.id;
     }
 
     public String getTitle() {
         return title;
     }
 
-    /*public String[] getCategory() {
+    public List<String> getCategory() {
         return categories;
-    }*/
+    }
 
     public float getRating() {
         return rating;
@@ -42,7 +40,7 @@ public abstract class Media {
     }
     @Override
     public String toString() {
-        return i + ")" + " " + this.title + ", " + this.releaseYear + ", " + categories + ", " + rating;
+        return id + ")" + " " + this.title + ", " + this.releaseYear + ", " + categories + ", " + rating;
     }
 
 }

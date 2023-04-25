@@ -62,6 +62,7 @@ public class IO {
                     float rating = Float.parseFloat(ratingStr);
                     Movie m = new Movie(title, categories, rating, releaseYear);
                     list.add(m);
+
                 }
             }
             return this.list;
