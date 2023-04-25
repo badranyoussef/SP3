@@ -29,7 +29,7 @@ public class Application {
         String input = ui.getInput("Do you want to 1. Create user or 2. Login");
         if (input.equals("1")) {
             createUser();
-        } else if (input.equals(2)) {
+        } else if (input.equals("2")) {
             String u = ui.getInput("Type username:");
             String p = ui.getInput("Type password:");
             login(u, p);
@@ -43,9 +43,10 @@ public class Application {
         String name = ui.getInput("What is your name?");
         String username = ui.getInput("Create username");
         String password = ui.getInput("Create password");
-        getUsers().add(new User(name, username, password));
+        //getUsers().add(new User(name, username, password));
+        //users.add(new User(name, username, password));
         io.saveUsers("src/Data/userdata.csv", this.users);
-        users.add(new User(name, username, password));
+        //
     }
 
     public boolean login(String username, String password) {
@@ -68,7 +69,7 @@ public class Application {
             for (int i = 0; i < m.size(); i++) {
                 System.out.println(m.get(i));
             }
-        } else if (input.equals(2)) {
+        } else if (input.equals("2")) {
         } else {
         }
     }
