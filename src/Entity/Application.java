@@ -120,10 +120,10 @@ public class Application {
 
     //Main menu after logging in (under construction)
     public void mainMenu() {
-        String input = ui.getInput("Welcome to main menu! Which of the following do you want to do?" +
-                " 1) See all movies available" +
-                " 2) Pick a category" +
-                " 3) Search for a movie" +
+        String input = ui.getInput("Welcome to main menu! Which of the following do you want to do?\n" +
+                "1) See all movies available\n" +
+                "2) Pick a category\n" +
+                "3) Search for a movie"+
                 " 4) Logout");
         if (input.equals("4")) {
             logout();
@@ -151,7 +151,11 @@ public class Application {
     }*/
     public void chooseMedia() {
         int i = Integer.parseInt(ui.getInput("Which would you like to choose? Use numbers please shown left for the movie"));
-        System.out.println("The following have been chosen " + medias.equals(i));
+        for (Media m : medias) {
+            if(m.getid() == i) {
+                ui.displayMessage("The following have been chosen " + m);
+            }
+        }
     }
 
     public void playMedia() {
