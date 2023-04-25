@@ -58,7 +58,7 @@ public class Application {
     }
 
     public void mainMenu() {
-        List<Media> m = io.readMovieData();
+        Set<Media> m = io.readMovieData("/src/Data/movies.txt");
 
         String input = ui.getInput("Welcome to main menu! Which of the following do you want to do?" +
                 " 1) See all movies available" +
@@ -90,6 +90,7 @@ public class Application {
     }
 
     public List<User> getUsers() {
+
         return users;
     }
 
