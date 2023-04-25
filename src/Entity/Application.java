@@ -43,9 +43,9 @@ public class Application {
         String name = ui.getInput("What is your name?");
         String username = ui.getInput("Create username");
         String password = ui.getInput("Create password");
-        getUsers().add(new User(name, username, password));
-        io.saveUsers("src/Data/userdata.csv", this.users);
+        //getUsers().add(new User(name, username, password));
         users.add(new User(name, username, password));
+        io.saveUsers("src/Data/userdata.csv", this.users);
     }
 
     public boolean login(String username, String password) {
