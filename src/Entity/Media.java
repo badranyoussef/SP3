@@ -12,7 +12,7 @@ public abstract class Media {
     private int i = 1; //Why?
     private static int ii = 1; //Why?
 
-    Media(String title/*, ArrayList<String> categories,*/, float rating, int releaseYear) {
+    Media(String title/*, ArrayList<String> categories,*/, float rating) {
         this.title = title;
         this.categories = categories;
         this.rating = rating;
