@@ -58,18 +58,18 @@ public class User {
 
     //Private method to check if username can be used.
     private String checkUserName(String userName) {
-        if (userName.length() > 6) {
+        if (userName.length() >= 6) {
             return this.userName = userName;
         }
-        return checkUserName(userName);
+        return "Unable to create user. Username must be at least 6 characters long.";
     }
 
     //Private method to check if password can be used.
     private String checkPassword(String password) {
-        if (password.length() > 8) {
+        if (password.length() >= 8) {
             return this.password = password;
         }
-        return checkPassword(password);
+        return "Unable to create user. Password must be at least 8 characters long.";
     }
     public Set<Media> getWatched() {
         return watched;
@@ -78,7 +78,10 @@ public class User {
     public Set<Media> getSaved() {
         return saved;
     }
-    public void addMedia(Media m){
-
+    public void addWatchedMedia(Media m){
+        this.watched.add(m);
+    }
+    public void addSavedMedia(Media m){
+        this.saved.add(m);
     }
 }

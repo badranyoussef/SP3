@@ -10,10 +10,13 @@ import java.util.Set;
 
 
 public class Application {
-    private List<User> users = new ArrayList<>();
+    private List<User> users;
     private Set<Media> medias = new HashSet<>();
     private IO io = new IO();
     private UI ui = new UI();
+    public Application(){
+        this.users = io.readUserData("src/Data/userdata.csv"); //ny app skal instantieres med eksisterende brugerdata.
+    }
 
     public void launchApplication() {
         startMenu();
@@ -41,9 +44,8 @@ public class Application {
         String username = ui.getInput("Create username");
         String password = ui.getInput("Create password");
         getUsers().add(new User(name, username, password));
-        io.saveUsers("data/userdata.csv", this.users);
-        
-        users.add(new User(name,username,password));
+        io.saveUsers("src/Data/userdata.csv", this.users);
+        users.add(new User(name, username, password));
     }
 
     public boolean login(String username, String password) {

@@ -13,18 +13,20 @@ import java.util.Scanner;
 public class IO {
     private File file;
     private Scanner scan;
-    List<Media> list = new ArrayList<>();
-
+    private List<Media> list = new ArrayList<>();
+    private ArrayList<String> category1 = new ArrayList<>();
     // A method to read the user data saved in the application
-    public List<String> readData(String path) {
+
+    public List<User> readUserData(String path) {
         file = new File(path);
-        List<String> data = new ArrayList<>();
+        List<User> data = new ArrayList<>();
         try {
             scan = new Scanner(file);
             scan.nextLine(); // ignore header in csv
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
-                data.add(line);
+                String[] values = line.split(",");
+                data.add(new User(values[0],values[1],values[2]));
             }
         } catch (FileNotFoundException e) {
             System.out.println("The file was not found");
@@ -48,9 +50,9 @@ public class IO {
     public List<Media> readMovieData() {
         String title = "";
         int releaseYear = 0;
-        String category = "";
+        String category2 = "";
         float rating = 0;
-        File file = new File("src\\data\\movies.txt");
+        File file = new File("src/Data/movies.txt");
         try (Scanner scan = new Scanner(file)) {
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
@@ -58,10 +60,11 @@ public class IO {
                 if (arrLine.length >= 4) {
                     title = arrLine[0].trim();
                     releaseYear = Integer.parseInt(arrLine[1].trim());
-                    category = arrLine[2].trim();
+                    category2 = arrLine[2].trim();
+                    String s = category2;
                     String ratingStr = arrLine[3].trim().replace(",", ".");
                     rating = Float.parseFloat(ratingStr);
-                    Movie movie = new Movie(title, category, rating, releaseYear);
+                    Movie movie = new Movie(title /*category1.add(s)*/, rating, releaseYear);
                     list.add(movie);
                 }
             }

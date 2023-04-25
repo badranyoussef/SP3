@@ -66,26 +66,29 @@ User : + void changeUserName(String userName)
 User : + void changePassword(String (password)
 User : + Set<Media> getWatched()
 User : + Set<Media> getSaved()
-User : + void addMedia(Media m)
+User : + void addWatchedMedia(Media m)
+User : + void addSavedMedia(Media m)
 
 
 InputOutput : - File file
 InputOutput : - Scanner scan
-InputOutput : + String readUserData (List<String>)
-InputOutput : + String saveData (List<String>)
+InputOutput : - List<Media> list = new ArrayList<>()
+InputOutput : + List<String> readData (String path)
+InputOutput : + void saveUsers (String path, List<User> userList)
+InputOutput : + List<Media> readMovieData()
 
 UserInterface : - Scanner scan = new Scanner (System.in)
-UserInterface : + void displayMessage(String)
-UserInterface : + String getInput(String)
+UserInterface : + void displayMessage(String msg)
+UserInterface : + String getInput(String msg)
 
 Media : - Scanner scan = new Scanner (System.in)
-Media : - String category
+Media : - String[] categories
 Media : - float rating
 Media : - int releaseYear
 Media : - String titel
-Media : + Media(String title, String category, float rating, int releaseYear)
+Media : + Media(String title, String[] categories, float rating, int releaseYear)
 Media : + String getTitle()
-Media : + String getCategory()
+Media : + String[] getCategories()
 Media : + float getRating()
 Media : + int getReleaseYear()
 
