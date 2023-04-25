@@ -3,14 +3,13 @@ package Entity;
 import Utility.IO;
 import Utility.UI;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 public class Application {
     private List<User> users;
-    private Set<Media> medias = new HashSet<>();
+    private List<String> categories = Arrays.asList("Crime", "Drama", "Biography", "Sport", "History", "Romance", "War", "Mystery", "Adventure", "Family", "Fantasy", "Thriller", "Horror", "Film-Noir", "Action", "Sci-fi", "Comedy" , "Musical", "Western", "Music");
+    private Set<Media> medias;
     private IO io = new IO();
     private UI ui = new UI();
 
@@ -124,17 +123,22 @@ public class Application {
                 "1) See all movies available\n" +
                 "2) Pick a category\n" +
                 "3) Search for a movie\n"+
-                " 4) Logout");
-        if (input.equals("4")) {
-            logout();
-            return;
-        }
+                "4) Logout");
         if (input.equals("1")) {
             for (Media m : medias) {
                 System.out.println(m);
             }
         } else if (input.equals(2)) {
-        } else {
+            for(String s : categories){
+                System.out.println(s);
+                chooseCategory();
+            }
+        } else if (input.equals(3)){
+            String searchQuery = ui.getInput("Type movie title:");
+            search(searchQuery);
+        } else if (input.equals("4")) {
+            logout();
+            return;
         }
     }
 
@@ -143,12 +147,12 @@ public class Application {
         System.out.println("Thank you for using our service! See you soon!");
     }
 
-    /*public Media search(String input){
+    public Media search(String input){
         //todo: add return statement
     }
     public Set<Media> filter(int i){
         //todo: add return statement
-    }*/
+    }
     public void chooseMedia() {
         int i = Integer.parseInt(ui.getInput("\nWhich would you like to choose? Use numbers please shown left for the movie"));
         for (Media m : medias) {
