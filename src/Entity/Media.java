@@ -1,17 +1,18 @@
 package Entity;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class Media {
     private Scanner scan = new Scanner(System.in); //Why?
     private String title;
-    private String[] categories;
+    private ArrayList<String> categories;
     private float rating;
     private int releaseYear;
     private int i = 1; //Why?
     private static int ii = 1; //Why?
 
-    Media(String title, String[] categories, float rating, int releaseYear) {
+    Media(String title/*, ArrayList<String> categories,*/, float rating, int releaseYear) {
         this.title = title;
         this.categories = categories;
         this.rating = rating;
@@ -28,9 +29,9 @@ public abstract class Media {
         return title;
     }
 
-    public String[] getCategory() {
+    /*public String[] getCategory() {
         return categories;
-    }
+    }*/
 
     public float getRating() {
         return rating;

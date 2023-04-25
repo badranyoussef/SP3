@@ -15,7 +15,7 @@ public class Application {
     private IO io = new IO();
     private UI ui = new UI();
     public Application(){
-        this.users = io.readUserData("data/userdata.csv"); //ny app skal instantieres med eksisterende brugerdata.
+        this.users = io.readUserData("src/Data/userdata.csv"); //ny app skal instantieres med eksisterende brugerdata.
     }
 
     public void launchApplication() {
@@ -44,7 +44,7 @@ public class Application {
         String username = ui.getInput("Create username");
         String password = ui.getInput("Create password");
         getUsers().add(new User(name, username, password));
-        io.saveUsers("Data/userdata.csv", this.users);
+        io.saveUsers("src/Data/userdata.csv", this.users);
         users.add(new User(name, username, password));
     }
 
