@@ -3,6 +3,8 @@ package Entity;
 
 import Utility.UI;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 public class User {
@@ -11,7 +13,7 @@ public class User {
     private String name;
     private String userName;
     private String password;
-    private Set<Media> watched;
+    private ArrayList<Media> watched;
     private Set<Media> saved;
     UI ui = new UI();
 
@@ -21,6 +23,7 @@ public class User {
         this.name = name;
         this.userName = userName;
         this.password = password;
+        this.watched = new ArrayList<>();
     }
 
     //Public method to get the name.
@@ -48,26 +51,9 @@ public class User {
         this.password = password;
     }
 
-    /*private String nameValidator(String userName) {
-        /*while (userName.length() < 6) {
-            System.out.println("That name can't be used! Try again!");
-            userName = ui.getInput("Write your username");
-        }
-        return this.userName = userName;
-    }*/
-
-    /*private String passwordValidator(String tryPassword) {
-        while (tryPassword.length() < 6) {
-            System.out.println("That password can't be used! Try again!");
-            tryPassword = ui.getInput("Write your password");
-        }
-        return this.password = tryPassword;
-    }*/
-
-
     //Public method to check which medias have been watched
-    public Set<Media> getWatched() {
-        return watched;
+    public ArrayList<Media> getWatched() {
+        return this.watched;
     }
 
     //Public method to check which medias have been saved
@@ -84,4 +70,5 @@ public class User {
     public void addSavedMedia(Media m) {
         this.saved.add(m);
     }
+
 }
