@@ -11,8 +11,7 @@ import java.util.*;
 public class IO {
     private File file;
     private Scanner scan;
-    private List<Media> list = new ArrayList<>();
-    private ArrayList<String> category1 = new ArrayList<>();
+    private Set<Media> setOfMedia = new HashSet<>();
     // A method to read the user data saved in the application
 
     public List<User> readUserData(String path) {
@@ -27,7 +26,7 @@ public class IO {
                 data.add(new User(values[0],values[1],values[2]));
             }
         } catch (FileNotFoundException e) {
-            System.out.println("The file was not found");
+            System.out.println("User data file was not found");
         }
         return data;
     }
@@ -47,7 +46,7 @@ public class IO {
 
     public Set<Media> readMovieData(String path) {
 
-        File file = new File("path"); // /src/Data/movies.txt
+        File file = new File(path); // /src/Data/movies.txt
         try (Scanner scan = new Scanner(file)) {
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
@@ -61,14 +60,13 @@ public class IO {
                     String ratingStr = arrLine[3].trim().replace(",", ".");
                     float rating = Float.parseFloat(ratingStr);
                     Movie m = new Movie(title, categories, rating, releaseYear);
-                    list.add(m);
-
+                    setOfMedia.add(m);
                 }
             }
-            return this.list;
+            return this.setOfMedia;
         } catch (FileNotFoundException e) {
-            System.out.println("File not found: " + e.getMessage());
+            System.out.println("Movie data file not found: " + e.getMessage());
         }
-        return list;
+        return setOfMedia;
     }
 }

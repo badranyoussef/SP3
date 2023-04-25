@@ -3,7 +3,6 @@ package Entity;
 import Utility.IO;
 import Utility.UI;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -14,8 +13,10 @@ public class Application {
     private Set<Media> medias = new HashSet<>();
     private IO io = new IO();
     private UI ui = new UI();
-    public Application(){
+
+    public Application() {
         this.users = io.readUserData("src/Data/userdata.csv"); //ny app skal instantieres med eksisterende brugerdata.
+        this.medias = io.readMovieData("src/Data/movies.txt");
     }
 
     public void launchApplication() {
@@ -58,15 +59,13 @@ public class Application {
     }
 
     public void mainMenu() {
-        Set<Media> m = io.readMovieData("/src/Data/movies.txt");
-
         String input = ui.getInput("Welcome to main menu! Which of the following do you want to do?" +
                 " 1) See all movies available" +
                 " 2) Pick a category" +
                 " 3) Search for a movie");
         if (input.equals("1")) {
-            for (int i = 0; i < m.size(); i++) {
-                System.out.println(m.get(i));
+            for (Media m : medias) {
+                System.out.println(m);
             }
         } else if (input.equals(2)) {
         } else {
@@ -81,8 +80,7 @@ public class Application {
     }*/
     public void chooseMedia() {
         int i = Integer.parseInt(ui.getInput("Which would you like to choose? Use numbers please shown left for the movie"));
-        List<Media> m = io.readMovieData();
-        System.out.println("The following have been chosen "+m.get(i-1));
+        System.out.println("The following have been chosen " + medias.equals(i));
     }
 
     public void playMedia() {

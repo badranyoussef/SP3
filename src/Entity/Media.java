@@ -2,6 +2,7 @@ package Entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public abstract class Media {
@@ -9,14 +10,17 @@ public abstract class Media {
     private List<String> categories;
     private float rating;
     private int releaseYear;
-    private static int id = 0;
+    private int id;
+
+    private static int counter = 1;
 
     Media(String title, ArrayList<String> categories, float rating, int releaseYear) {
         this.title = title;
         this.categories = categories;
         this.rating = rating;
         this.releaseYear = releaseYear;
-        this.id++;
+        this.id = counter;
+        counter++;
     }
 
     public int getid() {
@@ -40,7 +44,26 @@ public abstract class Media {
     }
     @Override
     public String toString() {
-        return id + ")" + " " + this.title + ", " + this.releaseYear + ", " + categories + ", " + rating;
+        return id + ") "+ this.title + ", " + this.releaseYear + ", " + "categories: " + showCategories() + rating;
     }
 
+    public String showCategories(){
+        String cat = "";
+        for (String c: categories) {
+            cat += c + ", ";
+        }
+        return cat;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Media media)) return false;
+        return id == media.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
