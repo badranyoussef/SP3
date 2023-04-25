@@ -1,37 +1,39 @@
 package Entity;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public abstract class Media {
-    private Scanner scan = new Scanner(System.in); //Why?
     private String title;
-    private ArrayList<String> categories;
+    private List<String> categories;
     private float rating;
     private int releaseYear;
-    private int i = 1; //Why?
-    private static int ii = 1; //Why?
+    private int id;
 
-    Media(String title/*, ArrayList<String> categories,*/, float rating, int releaseYear) {
+    private static int counter = 1;
+
+    Media(String title, ArrayList<String> categories, float rating, int releaseYear) {
         this.title = title;
         this.categories = categories;
         this.rating = rating;
         this.releaseYear = releaseYear;
-        this.i = ii;
-        ii++;
+        this.id = counter;
+        counter++;
     }
 
-    public int getI() {
-        return this.i;
+    public int getid() {
+        return this.id;
     }
 
     public String getTitle() {
         return title;
     }
 
-    /*public String[] getCategory() {
+    public List<String> getCategory() {
         return categories;
-    }*/
+    }
 
     public float getRating() {
         return rating;
@@ -42,7 +44,26 @@ public abstract class Media {
     }
     @Override
     public String toString() {
-        return i + ")" + " " + this.title + ", " + this.releaseYear + ", " + categories + ", " + rating;
+        return id + ") "+ this.title + ", " + this.releaseYear + ", " + "categories: " + showCategories() + rating;
     }
 
+    public String showCategories(){
+        String cat = "";
+        for (String c: categories) {
+            cat += c + ", ";
+        }
+        return cat;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Media media)) return false;
+        return id == media.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

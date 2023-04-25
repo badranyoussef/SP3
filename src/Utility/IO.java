@@ -6,15 +6,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class IO {
     private File file;
     private Scanner scan;
-    private List<Media> list = new ArrayList<>();
-    private ArrayList<String> category1 = new ArrayList<>();
+    private Set<Media> setOfMedia = new HashSet<>();
     // A method to read the user data saved in the application
 
     public List<User> readUserData(String path) {
@@ -29,7 +26,7 @@ public class IO {
                 data.add(new User(values[0],values[1],values[2]));
             }
         } catch (FileNotFoundException e) {
-            System.out.println("The file was not found");
+            System.out.println("User data file was not found");
         }
         return data;
     }
@@ -47,31 +44,29 @@ public class IO {
         }
     }
 
-    public List<Media> readMovieData() {
-        String title = "";
-        int releaseYear = 0;
-        String category2 = "";
-        float rating = 0;
-        File file = new File("src/Data/movies.txt");
+    public Set<Media> readMovieData(String path) {
+
+        File file = new File(path); // /src/Data/movies.txt
         try (Scanner scan = new Scanner(file)) {
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
                 String[] arrLine = line.split(";", 5);
                 if (arrLine.length >= 4) {
-                    title = arrLine[0].trim();
-                    releaseYear = Integer.parseInt(arrLine[1].trim());
-                    category2 = arrLine[2].trim();
-                    String s = category2;
+                    String title = arrLine[0].trim();
+                    int releaseYear = Integer.parseInt(arrLine[1].trim());
+                    String stringOfCategories = arrLine[2].trim();
+                    String[] arrCategories = stringOfCategories.split(",", 5);
+                    ArrayList<String> categories = new ArrayList<>(Arrays.asList(arrCategories));
                     String ratingStr = arrLine[3].trim().replace(",", ".");
-                    rating = Float.parseFloat(ratingStr);
-                    Movie movie = new Movie(title /*category1.add(s)*/, rating, releaseYear);
-                    list.add(movie);
+                    float rating = Float.parseFloat(ratingStr);
+                    Movie m = new Movie(title, categories, rating, releaseYear);
+                    setOfMedia.add(m);
                 }
             }
-            return this.list;
+            return this.setOfMedia;
         } catch (FileNotFoundException e) {
-            System.out.println("File not found: " + e.getMessage());
+            System.out.println("Movie data file not found: " + e.getMessage());
         }
-        return list;
+        return setOfMedia;
     }
 }
