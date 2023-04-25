@@ -14,7 +14,7 @@ public class IO {
     private File file;
     private Scanner scan;
     private List<Media> list = new ArrayList<>();
-
+    private ArrayList<String> category1 = new ArrayList<>();
     // A method to read the user data saved in the application
 
     public List<User> readUserData(String path) {
@@ -50,7 +50,7 @@ public class IO {
     public List<Media> readMovieData() {
         String title = "";
         int releaseYear = 0;
-        String category = "";
+        String category2 = "";
         float rating = 0;
         File file = new File("src/Data/movies.txt");
         try (Scanner scan = new Scanner(file)) {
@@ -60,10 +60,11 @@ public class IO {
                 if (arrLine.length >= 4) {
                     title = arrLine[0].trim();
                     releaseYear = Integer.parseInt(arrLine[1].trim());
-                    category = arrLine[2].trim();
+                    category2 = arrLine[2].trim();
+                    String s = category2;
                     String ratingStr = arrLine[3].trim().replace(",", ".");
                     rating = Float.parseFloat(ratingStr);
-                    Movie movie = new Movie(title, category, rating, releaseYear);
+                    Movie movie = new Movie(title /*category1.add(s)*/, rating, releaseYear);
                     list.add(movie);
                 }
             }
