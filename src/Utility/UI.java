@@ -7,7 +7,6 @@ public class UI {
 
     // A method to display a message to user
     public void displayMessage(String msg) {
-
         System.out.println(msg);
     }
 
