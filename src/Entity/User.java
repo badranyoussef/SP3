@@ -19,8 +19,8 @@ public class User {
     //Public constructor to create a user.
     public User(String name, String userName, String password) {
         this.name = name;
-        nameValidator(userName);
-        passwordValidator(password);
+        this.userName = userName;
+        this.password = password;
     }
 
     //Public method to get the name.
@@ -48,40 +48,21 @@ public class User {
         this.password = password;
     }
 
-    /*
-    //Private method to check if username can be used.
-    private String nameValidator(String userName) {
-        if (userName.length() >= 6) {
-            return this.userName = userName;
-        }
-        System.out.println("That name can't be used! Try again!");
-        return nameValidator(userName);
-    }
-
-    //Private method to check if password can be used.
-    private String passwordValidator(String password) {
-        if (password.length() >= 8) {
-            return this.password = password;
-        }
-        System.out.println("That password can't be used! Try again!");
-        return passwordValidator(password);
-    }
-     */
-    private String nameValidator(String userName) {
-        while (userName.length() < 6) {
+    /*private String nameValidator(String userName) {
+        /*while (userName.length() < 6) {
             System.out.println("That name can't be used! Try again!");
             userName = ui.getInput("Write your username");
         }
         return this.userName = userName;
-    }
+    }*/
 
-    private String passwordValidator(String tryPassword) {
+    /*private String passwordValidator(String tryPassword) {
         while (tryPassword.length() < 6) {
             System.out.println("That password can't be used! Try again!");
             tryPassword = ui.getInput("Write your password");
         }
         return this.password = tryPassword;
-    }
+    }*/
 
 
     //Public method to check which medias have been watched
