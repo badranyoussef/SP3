@@ -14,7 +14,7 @@ public class User {
     private String userName;
     private String password;
     private ArrayList<Media> watched;
-    private Set<Media> saved;
+    private ArrayList<Media> saved;
     UI ui = new UI();
 
 
@@ -24,6 +24,7 @@ public class User {
         this.userName = userName;
         this.password = password;
         this.watched = new ArrayList<>();
+        this.saved = new ArrayList<>();
     }
 
     //Public method to get the name.
@@ -57,7 +58,7 @@ public class User {
     }
 
     //Public method to check which medias have been saved
-    public Set<Media> getSaved() {
+    public ArrayList<Media> getSaved() {
         return saved;
     }
 
