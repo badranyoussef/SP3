@@ -128,6 +128,7 @@ public class Application {
             if (loginValidator(u, p)) {
                 System.out.println("\nWelcome back "+u+". You are now logged in!");
                 this.onlineUser = findUser(u);
+                mainMenu();
                 return;
             } else {
                 String retry = ui.getInput("\nInvalid username or password. Do you want to try again? (Y/N)");
