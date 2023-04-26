@@ -172,7 +172,7 @@ public class Application {
                 logout();
                 break;
             case "5":
-                printMediaList(this.onlineUser.getSaved());
+                printMediaList(this.onlineUser.getSavedMedia());
                 mainMenu();
                 break;
             case "6":
