@@ -16,7 +16,6 @@ class InputOutput
 'Entity Package
 package "Entity classes"{
 class Movie
-class Serie
 class Application
 class User
 abstract Media
@@ -27,10 +26,7 @@ Application *-- UserInterface
 Application *-- InputOutput
 Application *-- User
 Application *-- Media
-Media <|-- Serie
 Media <|-- Movie
-InputOutput *-- Movie
-InputOutput *-- Serie
 Main *-- Application
 
 'Class Methods & Attributes
@@ -53,29 +49,27 @@ Application : + void playMedia()
 User : - String name
 User : - String userName
 User : - String password
-User : - Set<Media> watched
-User : - Set<Media> saved
+User : - ArrayList<Media> watchedMedia
+User : - ArrayList<Media> savedMedia
+User : + User(String name, String userName, String password)
 User : - String checkUserName(String userName)
 User : - String checkPassword(String password)
-User : + User(String name, String userName, String password)
+
 User : + String getName()
 User : + String getUserName()
 User : + String getPassword()
-User : + void changeName(String name)
-User : + void changeUserName(String userName)
-User : + void changePassword(String (password)
-User : + Set<Media> getWatched()
-User : + Set<Media> getSaved()
+User : + ArrayList<Media> getWatched()
+User : + ArrayList<Media> getSavedMedia()
 User : + void addWatchedMedia(Media m)
 User : + void addSavedMedia(Media m)
 
-
 InputOutput : - File file
 InputOutput : - Scanner scan
-InputOutput : - List<Media> list = new ArrayList<>()
+InputOutput : - Set<Media> setOfMedia = new HashSet<>();
 InputOutput : + List<String> readData (String path)
-InputOutput : + void saveUsers (String path, List<User> userList)
-InputOutput : + List<Media> readMovieData()
+InputOutput : + List<User> readUserData(String path)
+InputOutput : + void saveUsers(String path, List<User> userList)
+InputOutput : + Set<Media> readMovieData(String path)
 
 UserInterface : - Scanner scan = new Scanner (System.in)
 UserInterface : + void displayMessage(String msg)
@@ -96,6 +90,7 @@ Media : + String showCategories()
 Media : + boolean equals(Object o)
 Media : + int hashCode()
 
-Movie : + Movie(String title, String category, float rating, int releaseYear)
+Movie : + Movie(String movieTitle, ArrayList<String> movieCategories, float movieRating, int movieReleaseYear)
+
 
 @enduml
