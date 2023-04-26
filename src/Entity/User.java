@@ -1,11 +1,5 @@
 package Entity;
-
-
-import Utility.UI;
-
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 public class User {
 
@@ -13,9 +7,8 @@ public class User {
     private String name;
     private String userName;
     private String password;
-    private ArrayList<Media> watched;
-    private ArrayList<Media> saved;
-    UI ui = new UI();
+    private ArrayList<Media> watchedMedia;
+    private ArrayList<Media> savedMedia;
 
 
     //Public constructor to create a user.
@@ -23,8 +16,8 @@ public class User {
         this.name = name;
         this.userName = userName;
         this.password = password;
-        this.watched = new ArrayList<>();
-        this.saved = new ArrayList<>();
+        this.watchedMedia = new ArrayList<>();
+        this.savedMedia = new ArrayList<>();
     }
 
     //Public method to get the name.
@@ -42,34 +35,24 @@ public class User {
         return password;
     }
 
-    //Public method to change name.
-    public void changeName(String name) {
-        this.name = name;
-    }
-
-    //Public method change password.
-    public void changePassword(String password) {
-        this.password = password;
-    }
 
     //Public method to check which medias have been watched
     public ArrayList<Media> getWatched() {
-        return this.watched;
+        return this.watchedMedia;
     }
 
     //Public method to check which medias have been saved
-    public ArrayList<Media> getSaved() {
-        return saved;
+    public ArrayList<Media> getSavedMedia() {
+        return savedMedia;
     }
 
     //Public method to add a watched media
     public void addWatchedMedia(Media m) {
-        this.watched.add(m);
+        this.watchedMedia.add(m);
     }
 
     //Public method to add saved media
     public void addSavedMedia(Media m) {
-        this.saved.add(m);
+        this.savedMedia.add(m);
     }
-
 }
