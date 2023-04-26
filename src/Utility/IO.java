@@ -72,7 +72,7 @@ public class IO {
                     String title = arrLine[0].trim();
                     int releaseYear = Integer.parseInt(arrLine[1].trim());
                     String stringOfCategories = arrLine[2].trim();
-                    String[] arrCategories = stringOfCategories.split(",", 5);
+                    String[] arrCategories = stringOfCategories.split(", ", 5);
                     ArrayList<String> categories = new ArrayList<>(Arrays.asList(arrCategories));
                     String ratingStr = arrLine[3].trim().replace(",", ".");
                     float rating = Float.parseFloat(ratingStr);
