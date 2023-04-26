@@ -6,6 +6,7 @@ import Utility.UI;
 import java.util.*;
 
 
+
 public class Application {
     private List<User> users;
     private List<String> categories = Arrays.asList("Crime", "Drama", "Biography", "Sport", "History", "Romance", "War", "Mystery", "Adventure", "Family", "Fantasy", "Thriller", "Horror", "Film-Noir", "Action", "Sci-fi", "Comedy" , "Musical", "Western", "Music");
