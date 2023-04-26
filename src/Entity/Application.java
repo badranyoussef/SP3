@@ -14,33 +14,28 @@ public class Application {
     private Set<Media> medias;
     private IO io = new IO();
     private UI ui = new UI();
-    private User onlineUser;
+    private User onlineUser; //To recognize which user is online and load/add from/to their lists
     private List<String> categories = io.readData("src/Data/categories.txt");
-    private String companyName = "GruppeA";
-    public Application() {
+    private String appName;
+    public Application(String appName) {
+        this.appName = appName;
         this.users = io.readUserData("src/Data/userdata.csv");
         this.medias = io.readMovieData("src/Data/movies.txt");
     }
-
+    //Method to launch application
     public void launchApplication() {
         startMenu();
     }
-    /*public Set<Media> saveMovies(){
-        return medias = io.readMovieData();
-    }*/
 
     //Start menu
     public void startMenu() {
-        ui.displayMessage("Welcome to "+companyName+"'s streaming service!\n\nChoose one of the following options:\n");
-
-        String input = ui.getInput("Type 1 to login.\nType 2 to sign in.\nType 3 to close the streaming service.\n\nType in your choice here:");
-
+        ui.displayMessage("Welcome to "+ appName +"'s streaming service!\n\nChoose one of the following options:\n");
+        String input = ui.getInput("Type 1 to login.\nType 2 to sign up.\nType 3 to close the streaming service.\n\nType in your choice here:");
         switch (input){
             case "1":
                 login();
                 break;
             case "2":
-                ui.displayMessage("");
                 createUser();
                 break;
             case "3":
@@ -51,12 +46,11 @@ public class Application {
         }
     }
 
-    //Create user method
+    //Method that creates new User to Application
     public void createUser() {
         String name = ui.getInput("Enter your name: (To go back to main menu type back)");
         if (name.equals("back")) {
             startMenu();
-            return;
         }
         String username = "";
         String password = "";
@@ -65,7 +59,6 @@ public class Application {
             username = ui.getInput("Create a username - it must be at least 6 characters long. (To get back to main menu type back):");
             if (username.equals("back")) {
                 startMenu();
-                return;
             }
             if (username.length() < 6) {
                 System.out.println("That username is too short. Please try again or type back to return to main menu");
@@ -77,7 +70,6 @@ public class Application {
             password = ui.getInput("Create a password - it must be at least 8 characters or type back to return to main menu");
             if (password.equals("back")) {
                 startMenu();
-                return;
             }
             if (password.length() < 8) {
                 System.out.println("That password is too short. Please try again or type back to return to main menu");
@@ -92,7 +84,7 @@ public class Application {
         mainMenu();
     }
 
-    //Validator to login if possible
+    //Validator to check if login is possible
     public boolean loginValidator(String username, String password) {
         for (User u : this.users) {
             if (u.getUserName().equals(username) && u.getPassword().equals(password)) {
@@ -117,24 +109,20 @@ public class Application {
             String u = ui.getInput("Type username: (or type back to return to main menu)");
             if (u.equals("back")) {
                 startMenu();
-                return;
             }
             String p = ui.getInput("Type password: (or type back to return to main menu)");
             if (p.equals("back")) {
                 startMenu();
-                return;
             }
             if (loginValidator(u, p)) {
                 System.out.println("\nWelcome back "+u+". You are now logged in!");
                 this.onlineUser = findUser(u);
                 mainMenu();
-                return;
             } else {
                 String retry = ui.getInput("\nInvalid username or password. Do you want to try again? (Y/N)");
                 if (retry.equals("N")) {
                     System.out.println("Login canceled.\n");
                     startMenu();
-                    return;
                 }
             }
         }
@@ -149,9 +137,7 @@ public class Application {
                 "4) Logout\n" +
                 "5) See personal list\n" +
                 "6) see watched media\n");
-
         switch (input) {
-
             case "1":
                 for (Media m : medias) {
                     System.out.println(m);
@@ -159,8 +145,10 @@ public class Application {
                 chooseMedia();
                 break;
             case "2":
+                int addCategoryID = 1;
                 for (String s : categories) {
-                    ui.displayMessage(s);
+                    ui.displayMessage(addCategoryID + ") " + s);
+                    addCategoryID++;
                 }
                 chooseCategory();
                 break;
@@ -180,19 +168,16 @@ public class Application {
                 mainMenu();
                 break;
             default:
-                ui.displayMessage("you did not choose one og the menues try again");
+                ui.displayMessage("you did not choose one og the menus try again");
                 mainMenu();
         }
     }
-
-
     public void printMediaList(ArrayList<Media> m) {
         System.out.println(this.onlineUser.getName() + "'s  is shown below: ");
         for (Media mm : m) {
             System.out.println(mm);
         }
     }
-
     public Media search(String input) {
         Media notFound = null;
         for (Media m : medias) {
@@ -204,20 +189,9 @@ public class Application {
         ui.displayMessage("The movie you are looking for does not exist");
         return notFound;
     }
-
-
     public void logout() {
-        //TOD IKKE BRUG SOUT
-        System.out.println("Thank you for using our service! See you soon!");
+        ui.displayMessage("Thank you for using our service! See you soon!");
     }
-
-    /*public Media search(String input){
-        //todo: add return statement
-    }
-    public Set<Media> filter(int i){
-        //todo: add return statement
-    }*/
-
     //Method to choose a media
     public void chooseMedia() {
         int i = Integer.parseInt(ui.getInput("Which would you like to choose?" + "\n" + "Use numbers please shown left for the movie!"));
@@ -240,7 +214,6 @@ public class Application {
         }
         chooseMedia();
     }
-
     //Method to have options with the media
     public void mediaOptions(Media m) {
         String input = ui.getInput
@@ -283,51 +256,12 @@ public class Application {
             e.printStackTrace();
         }
     }
-
-    // Load watchlist for a user
-   /* public List<Movie> loadWatchlist(User username) {
-        List<Movie> watchlist = new ArrayList<>();
-
-        try {
-            // Open the file with the user's username or ID
-            File file = new File(username + ".txt");
-            // Create a Scanner object to read from the file
-            Scanner scanner = new Scanner(file);
-            // Read each line in the file and create a new Movie object for each line
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                String[] parts = line.split(",");
-                String title = parts[0];
-                int year = Integer.parseInt(parts[1]);
-               // Movie movie = new Movie(title, year);
-                this.onlineUser.getWatched().add(movie);
-                //this.onlineUser.addWatchedMedia(movie);
-                watchlist.add(movie);
-                System.out.println(this.onlineUser.getWatched());
-            }
-
-            // Close the Scanner object
-            scanner.close();
-
-            System.out.println("Watchlist loaded for user: " + username);
-
-        } catch (IOException e) {
-            System.out.println("Error loading watchlist for user: " + username);
-            e.printStackTrace();
-        }
-
-        return watchlist;
-    }
-*/
     //Method to play the media
     public void playMedia(Media m) {
         System.out.println("The following media:"+m.getTitle()+" is playing!");
         onlineUser.addWatchedMedia(m);
         mainMenu();
-        //loadWatchlist(this.onlineUser);
-        //saveWatchlist(this.onlineUser, this.onlineUser.getWatched());
     }
-
     private List<User> getUsers() {
         return users;
     }
