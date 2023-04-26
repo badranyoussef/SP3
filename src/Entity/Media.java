@@ -3,18 +3,18 @@ package Entity;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Scanner;
 
 public abstract class Media {
-    private Scanner scan = new Scanner(System.in); //Why?
     private String title;
     private List<String> categories;
     private float rating;
     private int releaseYear;
     private int id;
 
+    //This counter will be used to count how many medias gets initialized and assign its value to the media ID
     private static int counter = 1;
 
+    //Constructor for media that ensures initializing all required instance variables when a media is initialized
     Media(String title, ArrayList<String> categories, float rating, int releaseYear) {
         this.title = title;
         this.categories = categories;
@@ -36,26 +36,25 @@ public abstract class Media {
         return categories;
     }
 
-    public float getRating() {
-        return rating;
-    }
-
     public int getReleaseYear() {
         return releaseYear;
     }
+    //Overriding toString to return a nice String all details of a media
     @Override
     public String toString() {
-        return id + ") "+ this.title + ", " + this.releaseYear + ", " + "categories: " + showCategories() + rating;
+        return id + ") " + this.title + ", " + this.releaseYear + ", " + "categories: " + showCategories() + rating;
     }
 
-    public String showCategories(){
+    //A method to show all categories
+    public String showCategories() {
         String cat = "";
-        for (String c: categories) {
+        for (String c : categories) {
             cat += c + ", ";
         }
         return cat;
     }
 
+    //Overriding HashSet to ensure that we the ID of the media wil be returned once the object is called
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
