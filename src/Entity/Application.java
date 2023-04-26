@@ -291,7 +291,8 @@ public class Application {
         while (true) {
             String input = ui.getInput("");
             if (input.equals("1")) {
-                playMedia(m);
+                ui.displayMessage("the movie has finished");
+                mainMenu();
                 break;
             } else if (input.equals("2")) {
                 addMediaToPersonalList(m);
