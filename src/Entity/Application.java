@@ -10,7 +10,7 @@ import java.util.*;
 
 
 public class Application {
-    private List<User> users; //todo: change to set
+    private Set<User> users;
     private Set<Media> medias;
     private IO io = new IO();
     private UI ui = new UI();
@@ -260,7 +260,7 @@ public class Application {
         onlineUser.addWatchedMedia(m);
         mediaOptions(m);
     }
-    private List<User> getUsers() {
+    private Set<User> getUsers() {
         return users;
     }
 }

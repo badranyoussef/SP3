@@ -22,12 +22,12 @@ abstract Media
 }
 
 'Label on Relations !MANGLER
-Application *-- UserInterface
-Application *-- InputOutput
-Application *-- User
-Application *-- Media
-Media <|-- Movie
-Main *-- Application
+Application "1" *-- "1" UserInterface: contains
+Application "1" *-- "1" InputOutput: contains
+Application "1" *-- "0..*" User: contains
+Application "1" *-- "0..*" Media: contains
+Media "1" <|-- "1" Movie: is
+Main "1" *-- "1" Application: contains
 
 'Class Methods & Attributes
 Main : + Application app

@@ -32,9 +32,9 @@ public class IO {
         }
         return data;
     }
-    public List<User> readUserData(String path) {
+    public Set<User> readUserData(String path) {
         file = new File(path);
-        List<User> data = new ArrayList<>();
+        Set<User> data = new HashSet<>();
         try {
             scan = new Scanner(file);
             scan.nextLine(); // ignore header in csv
@@ -50,7 +50,7 @@ public class IO {
     }
 
     // A method to save new users
-    public void saveUsers(String path, List<User> userList) {
+    public void saveUsers(String path, Set<User> userList) {
         FileWriter writer = null;
         try {
             writer = new FileWriter(path, true);
