@@ -31,6 +31,7 @@ public class Application {
 
     //Start menu
     public void startMenu() {
+        ui.displayMessage("welcome to company");
         String input = ui.getInput("Do you want to 1. Create user or 2. Login 3. Close program");
         if (input.equals("1")) {
             createUser();
@@ -149,6 +150,7 @@ public class Application {
                 for (Media m : medias) {
                     System.out.println(m);
                 }
+                chooseMedia();
                 break;
             case "2":
                 for (String s : categories) {
@@ -164,10 +166,12 @@ public class Application {
                 logout();
                 break;
             case "5":
-                //Call method see personal list
+                printMediaList(this.onlineUser.getSaved());
+                mainMenu();
                 break;
             case "6":
                 printMediaList(this.onlineUser.getWatched());
+                mainMenu();
                 break;
             default:
                 ui.displayMessage("you did not choose one og the menues try again");
@@ -177,7 +181,7 @@ public class Application {
 
 
     public void printMediaList(ArrayList<Media> m) {
-        System.out.println("User: " + this.onlineUser + ": Watched: ");
+        System.out.println(this.onlineUser.getName() + "'s  is shown below: ");
         for (Media mm : m) {
             System.out.println(mm);
         }
@@ -207,26 +211,35 @@ public class Application {
     public Set<Media> filter(int i){
         //todo: add return statement
     }*/
+
+    //Method to choose a media
     public void chooseMedia() {
-        int i = Integer.parseInt(ui.getInput("Which would you like to choose? Use numbers please shown left for the movie"));
+        int i = Integer.parseInt(ui.getInput("Which would you like to choose?" + "\n" + "Use numbers please shown left for the movie!"));
         for (Media m : medias) {
             if (m.getId() == i) {
-                ui.displayMessage("The following have been chosen " + m);
+                ui.displayMessage("The following have been chosen: " + m);
+                mediaOptions(m);
             }
         }
     }
 
+    //Method to have options with the media
     public void mediaOptions(Media m) {
         String input = ui.getInput
-                ("To start movie write 1" + " 2 add movie to personal list");
+                ("1) Start movie" + "\n" +
+                        "2) Add movie to personal list");
         if (input.equals("1")) {
             playMedia(m);
+        } else if (input.equals("2")) {
+            addMediaToPersonalList(m);
         }
     }
 
+    //Method ot add media to personal list
     public void addMediaToPersonalList(Media m) {
         this.onlineUser.addSavedMedia(m);
-        ui.displayMessage("Følgende er nu blevet tilføjet: " + m.getTitle());
+        ui.displayMessage("The following have been added: " + "\n"+ m.getTitle());
+        mainMenu();
     }
 
     public void saveWatchlist(User user, List<Media> watchlist) {
@@ -288,11 +301,13 @@ public class Application {
         return watchlist;
     }
 */
+    //Method to play the media
     public void playMedia(Media m) {
-        System.out.println("filmen er i gang");
+        System.out.println("The following media:"+m.getTitle()+" is playing!");
         onlineUser.addWatchedMedia(m);
+        mainMenu();
         //loadWatchlist(this.onlineUser);
-        saveWatchlist(this.onlineUser, this.onlineUser.getWatched());
+        //saveWatchlist(this.onlineUser, this.onlineUser.getWatched());
     }
 
     private List<User> getUsers() {
