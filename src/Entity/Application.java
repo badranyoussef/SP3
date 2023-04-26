@@ -19,6 +19,7 @@ public class Application {
 
     public Application() {
         this.users = io.readUserData("src/Data/userdata.csv"); //ny app skal instantieres med eksisterende brugerdata.
+        this.medias = io.readMovieData("src/Data/movies.txt");
     }
 
     public void launchApplication() {
