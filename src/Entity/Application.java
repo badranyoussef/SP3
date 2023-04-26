@@ -291,8 +291,9 @@ public class Application {
     public void playMedia(Media m) {
         System.out.println("filmen er i gang");
         onlineUser.addWatchedMedia(m);
+        mainMenu();
         //loadWatchlist(this.onlineUser);
-        saveWatchlist(this.onlineUser, this.onlineUser.getWatched());
+        //saveWatchlist(this.onlineUser, this.onlineUser.getWatched());
     }
 
     private List<User> getUsers() {
