@@ -198,6 +198,7 @@ public class Application {
     }
     public void logout() {
         ui.displayMessage("Thank you for using our service! See you soon!");
+        startMenu();
     }
     //Method to choose a media
     public void chooseMedia() {
