@@ -18,7 +18,20 @@ public class IO {
     private Scanner scan;
     private Set<Media> setOfMedia = new HashSet<>();
     // A method to read the user data saved in the application
-
+    public List<String> readData(String path){
+        file = new File(path);
+        List<String> data = new ArrayList<>();
+        try{
+            scan = new Scanner(file);
+            while(scan.hasNextLine()){
+                String line = scan.nextLine();
+                data.add(line);
+            }
+        }catch (FileNotFoundException e){
+            System.out.println("User data file was not found");
+        }
+        return data;
+    }
     public List<User> readUserData(String path) {
         file = new File(path);
         List<User> data = new ArrayList<>();

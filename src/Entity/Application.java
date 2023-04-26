@@ -11,11 +11,11 @@ import java.util.*;
 
 public class Application {
     private List<User> users;
-    private Set<Media> medias = new HashSet<>();
+    private Set<Media> medias;
     private IO io = new IO();
     private UI ui = new UI();
     private User onlineUser;
-    private List<String> categories = Arrays.asList("1. Crime", "2. Drama", "3. Biography", "4. Sport", "5. History", "6. Romance", "7. War", "8. Mystery", "9. Adventure", "10. Family", "11. Fantasy", "12. Thriller", "13. Horror", "14. Film-Noir", "15. Action", "16. Sci-fi", "17. Comedy", "18. Musical", "19. Western", "20. Music");
+    private List<String> categories = io.readData("src/Data/categories.txt");
 
     public Application() {
         this.users = io.readUserData("src/Data/userdata.csv"); //ny app skal instantieres med eksisterende brugerdata.
@@ -154,7 +154,7 @@ public class Application {
                 for (String s : categories) {
                     ui.displayMessage(s);
                 }
-                //chooseCategory();
+                chooseCategory();
                 break;
             case "3":
                 String searchQuery = ui.getInput("Type media title:");
@@ -214,6 +214,18 @@ public class Application {
                 ui.displayMessage("The following have been chosen " + m);
             }
         }
+    }
+    public void chooseCategory(){
+        int input = Integer.parseInt(ui.getInput("Type category ID:"));
+        String category = categories.get(input-1);
+        for(Media m : medias){
+            for(String s : m.getCategory()){
+                if(s.equals(category)){
+                    ui.displayMessage(m.toString());
+                }
+            }
+        }
+        chooseMedia();
     }
 
     public void mediaOptions(Media m) {
