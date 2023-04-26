@@ -36,9 +36,6 @@ public abstract class Media {
         return categories;
     }
 
-    public int getReleaseYear() {
-        return releaseYear;
-    }
     //Overriding toString to return a nice String all details of a media
     @Override
     public String toString() {

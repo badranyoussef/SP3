@@ -86,16 +86,20 @@ UserInterface : - Scanner scan = new Scanner (System.in)
 UserInterface : + void displayMessage(String msg)
 UserInterface : + String getInput(String msg)
 
-Media : - Scanner scan = new Scanner (System.in)
-Media : - String[] categories
+Media : - String title
+Media : - List<String> categories
 Media : - float rating
 Media : - int releaseYear
-Media : - String titel
-Media : + Media(String title, String[] categories, float rating, int releaseYear)
+Media : - int id
+Media : - static int counter = 1
+Media : + Media(String title, ArrayList<String> categories, float rating, int releaseYear)
+Media : + int getId()
 Media : + String getTitle()
-Media : + String[] getCategories()
-Media : + float getRating()
-Media : + int getReleaseYear()
+Media : + List<String> getCategory()
+Media : + String toString()
+Media : + String showCategories()
+Media : + boolean equals(Object o)
+Media : + int hashCode()
 
 Movie : + Movie(String movieTitle, ArrayList<String> movieCategories, float movieRating, int movieReleaseYear)
 
