@@ -15,10 +15,11 @@ public class Application {
     private IO io = new IO();
     private UI ui = new UI();
     private User onlineUser;
+    private String companyName = "GruppeA";
     private List<String> categories = Arrays.asList("1. Crime", "2. Drama", "3. Biography", "4. Sport", "5. History", "6. Romance", "7. War", "8. Mystery", "9. Adventure", "10. Family", "11. Fantasy", "12. Thriller", "13. Horror", "14. Film-Noir", "15. Action", "16. Sci-fi", "17. Comedy", "18. Musical", "19. Western", "20. Music");
 
     public Application() {
-        this.users = io.readUserData("src/Data/userdata.csv"); //ny app skal instantieres med eksisterende brugerdata.
+        this.users = io.readUserData("src/Data/userdata.csv");
         this.medias = io.readMovieData("src/Data/movies.txt");
     }
 
@@ -31,22 +32,29 @@ public class Application {
 
     //Start menu
     public void startMenu() {
-        String input = ui.getInput("Do you want to 1. Create user or 2. Login 3. Close program");
-        if (input.equals("1")) {
-            createUser();
-        } else if (input.equals("2")) {
-            login();
-        } else if (input.equals("3")) {
-            System.out.println("Goodbye!");
-        } else {
-            ui.displayMessage("Try again");
-            startMenu();
+        ui.displayMessage("Welcome to "+companyName+"'s streaming service!\n\nChoose one of the following options:\n");
+
+        String input = ui.getInput("Type 1 to login.\nType 2 to sign in.\nType 3 to close the streaming service.\n\nType in your choice here:");
+
+        switch (input){
+            case "1":
+                login();
+                break;
+            case "2":
+                ui.displayMessage("");
+                createUser();
+                break;
+            case "3":
+                ui.displayMessage("Thanks for using our service, have a nice day!");
+            default :
+                ui.displayMessage("You did not type one of the above options. Please try again");
+                startMenu();
         }
     }
 
     //Create user method
     public void createUser() {
-        String name = ui.getInput("Enter your name: (Go back by typing: back");
+        String name = ui.getInput("Enter your name: (To go back to main menu type back)");
         if (name.equals("back")) {
             startMenu();
             return;
@@ -55,35 +63,34 @@ public class Application {
         String password = "";
 
         while (true) {
-            username = ui.getInput("Create a username (must be at least 6 characters long) Go back by typing back:");
+            username = ui.getInput("Create a username - it must be at least 6 characters long. (To get back to main menu type back):");
             if (username.equals("back")) {
                 startMenu();
                 return;
             }
             if (username.length() < 6) {
-                System.out.println("That username is too short. Please try again. (Go back by typing: back");
+                System.out.println("That username is too short. Please try again or type back to return to main menu");
             } else {
                 break;
             }
         }
-
         while (true) {
-            password = ui.getInput("Create a password (must be at least 8 characters long GO back by typing: back):");
+            password = ui.getInput("Create a password - it must be at least 8 characters or type back to return to main menu");
             if (password.equals("back")) {
                 startMenu();
                 return;
             }
             if (password.length() < 8) {
-                System.out.println("That password is too short. Please try again.(Go back by typing: back");
+                System.out.println("That password is too short. Please try again or type back to return to main menu");
             } else {
                 break;
             }
         }
-
-
         this.onlineUser = new User(name, username, password);
         getUsers().add(onlineUser);
         io.saveUsers("src/Data/userdata.csv", this.users);
+        ui.displayMessage("Welcome onboard "+name+". Thanks for choosing our service\n");
+        mainMenu();
     }
 
     //Validator to login if possible
@@ -105,28 +112,28 @@ public class Application {
         return this.onlineUser;
     }
 
-    //Method to use when loging in
+    //Method to login
     public void login() {
         while (true) {
-            String u = ui.getInput("Type username:back");
+            String u = ui.getInput("Type username: (or type back to return to main menu)");
             if (u.equals("back")) {
                 startMenu();
                 return;
             }
-            String p = ui.getInput("Type password:back");
+            String p = ui.getInput("Type password: (or type back to return to main menu)");
             if (p.equals("back")) {
                 startMenu();
                 return;
             }
             if (loginValidator(u, p)) {
-                System.out.println("Login successful!");
+                System.out.println("\nWelcome back "+u+". You are now logged in!");
                 this.onlineUser = findUser(u);
                 return;
             } else {
-                System.out.println("Invalid username or password. Please try again.");
-                String retry = ui.getInput("Do you want to try again? (Y/N)");
+                String retry = ui.getInput("\nInvalid username or password. Do you want to try again? (Y/N)");
                 if (retry.equals("N")) {
-                    System.out.println("Login canceled.");
+                    System.out.println("Login canceled.\n");
+                    startMenu();
                     return;
                 }
             }
@@ -135,7 +142,7 @@ public class Application {
 
     //Main menu after logging in (under construction)
     public void mainMenu() {
-        String input = ui.getInput("Welcome to main menu! Which of the following do you want to do?\n" +
+        String input = ui.getInput("\n(Main menu)\nWhich of the following do you want to do?\n" +
                 "1) See all movies available\n" +
                 "2) Pick a category\n" +
                 "3) Search for a movie or serie\n" +
