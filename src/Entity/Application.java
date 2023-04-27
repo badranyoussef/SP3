@@ -3,10 +3,9 @@ package Entity;
 import Utility.IO;
 import Utility.UI;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 //TESTETESTSTESTS
 
@@ -18,33 +17,42 @@ public class Application {
     private User onlineUser; //To recognize which user is online and load/add from/to their lists
     private List<String> categories = io.readData("src/Data/categories.txt");
     private String appName;
+
     public Application(String appName) {
         this.appName = appName;
         this.users = io.readUserData("src/Data/userdata.csv");
         this.medias = io.readMovieData("src/Data/movies.txt");
     }
+
     //Method to launch application
     public void launchApplication() {
         startMenu();
     }
 
-    //Start menu
     public void startMenu() {
-        ui.displayMessage("Welcome to "+ appName +"'s streaming service!\n\nChoose one of the following options:\n");
-        String input = ui.getInput("1) to login.\n2) to sign up.\n3) to close the streaming service.\n\nType in your choice below:");
-        switch (input){
-            case "1":
-                login();
-                break;
-            case "2":
-                createUser();
-                break;
-            case "3":
-                ui.displayMessage("Thanks for using our service, have a nice day!");
-                break;
-            default :
-                ui.displayMessage("You did not type one of the above options. Please try again");
-                startMenu();
+        boolean isValidOption = true;
+            ui.displayMessage("Welcome to " + appName + "'s streaming service!\n\nChoose one of the following options:\n");
+            ui.displayMessage("1) to login.\n2) to sign up.\n3) to close the streaming service.\n\nType in your choice below:");
+
+            while (isValidOption) {
+                String input = ui.getInput("");
+                        switch (input) {
+                case "1":
+                    login();
+                    isValidOption = false;
+                    break;
+                case "2":
+                    createUser();
+                    isValidOption = false;
+                    break;
+                case "3":
+                    ui.displayMessage("Thanks for using our service, have a nice day!");
+                    isValidOption = false;
+                    System.exit(0);
+                    break;
+                default:
+                    ui.displayMessage("Invalid input. Please try again.\n");
+            }
         }
     }
 
@@ -82,7 +90,7 @@ public class Application {
         this.onlineUser = new User(name, username, password);
         getUsers().add(onlineUser);
         io.saveUsers("src/Data/userdata.csv", this.users);
-        ui.displayMessage("Welcome onboard "+name+". Thanks for choosing our service\n");
+        ui.displayMessage("Welcome onboard " + name + ". Thanks for choosing our service\n");
         mainMenu();
     }
 
@@ -105,19 +113,34 @@ public class Application {
         return this.onlineUser;
     }
 
-    //Method to login
     public void login() {
-        while (true) {
-            String u = ui.getInput("Type username: (Back to Start Menu type: X)");
+        String u = "";
+        String p = "";
+        boolean validInput = false;
+
+        while (!validInput) {
+            u = ui.getInput("Type username: (Back to Start Menu type: X)");
             if (u.equalsIgnoreCase("x")) {
                 startMenu();
+                validInput = true;
             }
-            String p = ui.getInput("Type password: (Back to Start Menu type: X)");
+            p = ui.getInput("Type password: (Back to Start Menu type: X)");
             if (p.equalsIgnoreCase("x")) {
                 startMenu();
+                validInput = true;
             }
+
+            // Check if both u and p have non-zero length
+            if (!u.isEmpty() && !p.isEmpty()) {
+                validInput = true;
+            } else {
+                ui.displayMessage("Please enter a valid username and password.\n");
+            }
+        }
+
+
             if (loginValidator(u, p)) {
-                System.out.println("\nWelcome back "+u+". You are now logged in!");
+                System.out.println("\nWelcome back " + u + ". You are now logged in!");
                 this.onlineUser = findUser(u);
                 mainMenu();
             } else {
@@ -125,67 +148,78 @@ public class Application {
                 if (retry.equalsIgnoreCase("n")) {
                     System.out.println("Login canceled.\n");
                     startMenu();
-                } else if(retry.equalsIgnoreCase("y")){
-                    login();
+                } else if (retry.equalsIgnoreCase("y")) {
+                    // Continue the outer while loop to prompt for username and password again
                 } else {
                     ui.displayMessage("I don't understand: " + retry);
-                    retry = ui.getInput("Try again");
                 }
             }
         }
-    }
+
 
     //Main menu after logging in (under construction)
     public void mainMenu() {
-        String input = ui.getInput("\n(Main menu)\nWhich of the following do you want to do?\n" +
+        ui.displayMessage("\n(Main menu)\nWhich of the following do you want to do?\n" +
                 "1) See all media available\n" +
                 "2) Pick a category\n" +
                 "3) Search for a movie or series\n" +
                 "4) See personal list\n" +
                 "5) see watched media\n" +
                 "6) Logout\n");
-        switch (input) {
-            case "1":
-                for (Media m : medias) {
-                    System.out.println(m);
-                }
-                chooseMedia();
-                break;
-            case "2":
-                int addCategoryID = 1;
-                for (String s : categories) {
-                    ui.displayMessage(addCategoryID + ") " + s);
-                    addCategoryID++;
-                }
-                chooseCategory();
-                break;
-            case "3":
-                String searchQuery = ui.getInput("Type media title:");
-                Media mediaFound = search(searchQuery);
-                mediaOptions(mediaFound);
-                break;
-            case "4":
-                printMediaList(this.onlineUser.getSavedMedia());
-                chooseMedia();
-                break;
-            case "5":
-                printMediaList(this.onlineUser.getWatched());
-                mainMenu();
-                break;
-            case "6":
-                logout();
-                break;
-            default:
-                ui.displayMessage("you did not choose one og the menus try again");
-                mainMenu();
+        boolean validInput = false;
+        while(!validInput) {
+            String input = ui.getInput("");
+            switch (input) {
+                case "1":
+                    for (Media m : medias) {
+                        System.out.println(m);
+                    }
+                    chooseMedia();
+                    validInput = true;
+                    break;
+                case "2":
+                    int addCategoryID = 1;
+                    for (String s : categories) {
+                        ui.displayMessage(addCategoryID + ") " + s);
+                        addCategoryID++;
+                    }
+                    chooseCategory();
+                    validInput = true;
+                    break;
+                case "3":
+                    String searchQuery = ui.getInput("Type media title:");
+                    Media mediaFound = search(searchQuery);
+                    mediaOptions(mediaFound);
+                    validInput = true;
+                    break;
+                case "4":
+                    printMediaList(this.onlineUser.getSavedMedia());
+                    chooseMedia();
+                    validInput = true;
+                    break;
+                case "5":
+                    printMediaList(this.onlineUser.getWatched());
+                    mainMenu();
+                    validInput = true;
+                    break;
+                case "6":
+                    logout();
+                    validInput = true;
+                    break;
+                default:
+                    System.out.println("Invalid input. Please try again.");
+                    break;
+            }
         }
     }
+
     public void printMediaList(ArrayList<Media> m) {
         System.out.println(this.onlineUser.getName() + "'s  is shown below: ");
         for (Media mm : m) {
             System.out.println(mm);
         }
     }
+
     public Media search(String input) {
         Media notFound = null;
         for (Media m : medias) {
@@ -197,70 +231,102 @@ public class Application {
         ui.displayMessage("The movie you are looking for does not exist");
         return notFound;
     }
+
     public void logout() {
         ui.displayMessage("Thank you for using our service! See you soon!");
         startMenu();
     }
+
     //Method to choose a media
     public void chooseMedia() {
-        String input = ui.getInput("Which would you like to choose?" + "\n" + "Use numbers please shown left for the movie! (Back to Main Menu type: X");
-        for (Media m : medias) {
-            if (m.getId() == Integer.parseInt(input)) {
-                ui.displayMessage("The following have been chosen: " + m);
-                mediaOptions(m);
-            } else if(Integer.parseInt(input) < 1 || Integer.parseInt(input)> medias.size()){
-                input = ui.getInput("Please type a number between 1-" + medias.size() + "or X to go back to Main Menu."); //todo: only works once
-            } else if(input.equalsIgnoreCase("x")){
+        String input;
+        boolean validInput = false;
+        while (!validInput) {
+            input = ui.getInput("Which would you like to choose?" + "\n" + "Use numbers please shown left for the movie! (Back to Main Menu type: X");
+            if (input.equalsIgnoreCase("x")) {
+                mainMenu();
+                return;
+            }
+            try {
+                int selectedId = Integer.parseInt(input);
+                for (Media m : medias) {
+                    if (m.getId() == selectedId) {
+                        ui.displayMessage("The following have been chosen: " + m);
+                        mediaOptions(m);
+                        validInput = true;
+                        break;
+                    }
+                }
+                if (!validInput) {
+                    ui.displayMessage("Invalid selection. Please try again.");
+                }
+            } catch (NumberFormatException e) {
+                ui.displayMessage("Invalid input. Please enter a number or 'X'.");
+            }
+        }
+    }
+    public void chooseCategory() {
+        while (true) {
+            String input = ui.getInput("Type category ID:");
+            if (input.equalsIgnoreCase("x")) {
                 mainMenu();
             }
-        }
-    }
-    public void chooseCategory(){
-        String input = ui.getInput("Type category ID:");
-        String category = categories.get(Integer.parseInt(input)-1);
-        for(Media m : medias){
-            for(String s : m.getCategory()){
-                if(s.equals(category)){
-                    ui.displayMessage(m.toString());
+            int categoryID = Integer.parseInt(input);
+            if (categoryID >= 1 && categoryID <= categories.size()) {
+                String category = categories.get(categoryID - 1);
+                for (Media m : medias) {
+                    for (String s : m.getCategory()) {
+                        if (s.equals(category)) {
+                            ui.displayMessage(m.toString());
+                        }
+                    }
                 }
+                chooseMedia();
+                break;
+            } else {
+                ui.displayMessage("Invalid input. Please type a number between 1 and " + categories.size() + ", or X to go back to Main Menu.");
             }
         }
-        if(Integer.parseInt(input) < 1 || Integer.parseInt(input)> categories.size()){
-            input = ui.getInput("Please type a number between 1-" + categories.size() + "or X to go back to Main Menu."); //todo: only works once
-        } else if(input.equalsIgnoreCase("x")){
-            mainMenu();
-        }
-        chooseMedia();
     }
-    //Method to have options with the media
+
     public void mediaOptions(Media m) {
-        String input = ui.getInput
-                ("1) Start movie\n" +
+        ui.displayMessage(
+                "1) Start movie\n" +
                         "2) Add movie to personal list\n" +
                         "3) Go back to Main Menu");
-        if (input.equals("1")) {
-            playMedia(m);
-        } else if (input.equals("2")) {
-            addMediaToPersonalList(m);
-        } else if(input.equals("3")){
-            mainMenu();
-        } else {
-            input = ui.getInput("I don't understand: " + input + ". Try again."); //todo: only works once
+        while (true) {
+            String input = ui.getInput("");
+            if (input.equals("1")) {
+                ui.displayMessage("the movie has finished");
+                mainMenu();
+                break;
+            } else if (input.equals("2")) {
+                addMediaToPersonalList(m);
+                break;
+            } else if (input.equals("3")) {
+                mainMenu();
+                break;
+            } else {
+                ui.displayMessage("I don't understand: " + input + ". Try again.");
+            }
         }
     }
+
 
     //Method ot add media to personal list
     public void addMediaToPersonalList(Media m) {
         this.onlineUser.addSavedMedia(m);
-        ui.displayMessage("The following have been added: " + "\n"+ m.getTitle());
+        ui.displayMessage("The following have been added: " + "\n" + m.getTitle());
         mediaOptions(m);
     }
+
     //Method to play the media
     public void playMedia(Media m) {
-        System.out.println("The following media:"+m.getTitle()+" is playing!");
+        System.out.println("The following media:" + m.getTitle() + " is playing!");
         onlineUser.addWatchedMedia(m);
         mediaOptions(m);
     }
+
     private Set<User> getUsers() {
         return users;
     }
