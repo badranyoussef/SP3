@@ -19,6 +19,7 @@ class Movie
 class Application
 class User
 abstract Media
+class Series
 }
 
 'Label on Relations !MANGLER
@@ -26,7 +27,8 @@ Application "1" *-- "1" UserInterface: contains
 Application "1" *-- "1" InputOutput: contains
 Application "1" *-- "0..*" User: contains
 Application "1" *-- "0..*" Media: contains
-Media "1" <|-- "1" Movie: is
+Media "1" <|-- "1" Movie: is a
+Media "1" <|-- "1" Series: is a
 Main "1" *-- "1" Application: contains
 
 'Class Methods & Attributes
@@ -101,7 +103,10 @@ Media : + String showCategories()
 Media : + boolean equals(Object o)
 Media : + int hashCode()
 
-Movie : + Movie(String movieTitle, ArrayList<String> movieCategories, float movieRating, int movieReleaseYear)
+Movie : + Movie(String movieTitle, ArrayList<String> movieCategories, float movieRating, String releaseYear)
 
+Series : - int seasons
+Series : - int episodes
+Series : + Series(String movieTitle, ArrayList<String> movieCategories, float movieRating, String releaseYear, int seasons, int episodes)
 
 @enduml
