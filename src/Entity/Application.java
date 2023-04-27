@@ -29,22 +29,26 @@ public class Application {
     }
 
     public void startMenu() {
-
+        boolean isValidOption = true;
             ui.displayMessage("Welcome to " + appName + "'s streaming service!\n\nChoose one of the following options:\n");
             ui.displayMessage("1) to login.\n2) to sign up.\n3) to close the streaming service.\n\nType in your choice below:");
 
-            while (true) {
+            while (isValidOption) {
                 String input = ui.getInput("");
                         switch (input) {
                 case "1":
                     login();
-                    return;
+                    isValidOption = false;
+                    break;
                 case "2":
                     createUser();
-                    return;
+                    isValidOption = false;
+                    break;
                 case "3":
                     ui.displayMessage("Thanks for using our service, have a nice day!");
-                    return;
+                    isValidOption = false;
+                    System.exit(0);
+                    break;
                 default:
                     ui.displayMessage("Invalid input. Please try again.\n");
             }
@@ -109,28 +113,30 @@ public class Application {
     }
 
     public void login() {
-        while (true) {
-            String u = "";
-            String p = "";
-            boolean validInput = false;
+        String u = "";
+        String p = "";
+        boolean validInput = false;
 
-            while (!validInput) {
-                u = ui.getInput("Type username: (Back to Start Menu type: X)");
-                if (u.equalsIgnoreCase("x")) {
-                    startMenu();
-                }
-                p = ui.getInput("Type password: (Back to Start Menu type: X)");
-                if (p.equalsIgnoreCase("x")) {
-                    startMenu();
-                }
-
-                // Check if both u and p have non-zero length
-                if (!u.isEmpty() && !p.isEmpty()) {
-                    validInput = true;
-                } else {
-                    ui.displayMessage("Please enter a valid username and password.\n");
-                }
+        while (!validInput) {
+            u = ui.getInput("Type username: (Back to Start Menu type: X)");
+            if (u.equalsIgnoreCase("x")) {
+                startMenu();
+                validInput = true;
             }
+            p = ui.getInput("Type password: (Back to Start Menu type: X)");
+            if (p.equalsIgnoreCase("x")) {
+                startMenu();
+                validInput = true;
+            }
+
+            // Check if both u and p have non-zero length
+            if (!u.isEmpty() && !p.isEmpty()) {
+                validInput = true;
+            } else {
+                ui.displayMessage("Please enter a valid username and password.\n");
+            }
+        }
+
 
             if (loginValidator(u, p)) {
                 System.out.println("\nWelcome back " + u + ". You are now logged in!");
@@ -148,7 +154,6 @@ public class Application {
                 }
             }
         }
-    }
 
 
     //Main menu after logging in (under construction)

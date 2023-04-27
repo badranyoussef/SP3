@@ -53,9 +53,10 @@ public class IO {
     public void saveUsers(String path, Set<User> userList) {
         FileWriter writer = null;
         try {
-            writer = new FileWriter(path, true);
+            writer = new FileWriter(path);
+            writer.write("Name,Username,Password\n");
             for (User u : userList) {
-                writer.write(u.getName() + "," + u.getUserName() + "," + u.getPassword() + u.getWatched() + "\n");
+                writer.write(u.getName() + "," + u.getUserName() + "," + u.getPassword() + "\n");
             }
             writer.close();
         } catch (IOException e) {
