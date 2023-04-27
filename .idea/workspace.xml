@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64577a79-e5c1-47f5-aec6-f25936b61ab8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Entity/Episode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Season.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Documents/classDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Documents/classDiagram.puml" afterDir="false" />
-    </list>
+    <list default="true" id="64577a79-e5c1-47f5-aec6-f25936b61ab8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -112,7 +108,7 @@
       <workItem from="1682521630211" duration="2673000" />
       <workItem from="1682524443073" duration="16000" />
       <workItem from="1682527121621" duration="414000" />
-      <workItem from="1682584188656" duration="4003000" />
+      <workItem from="1682584188656" duration="4313000" />
     </task>
     <servers />
   </component>
