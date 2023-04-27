@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64577a79-e5c1-47f5-aec6-f25936b61ab8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Series.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2023__21_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2023__21_28__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2023__21_28__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2023__21_28__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SP3/Client/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Client/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SP3/Entity/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Entity/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SP3/Utility/IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Utility/IO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Data/series.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/series.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Media.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utility/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utility/IO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +35,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="b26218a4-884c-41b7-bdf6-31895b993a90" />
+        <option name="url" value="https://github.com/badranyoussef/SP3.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -94,6 +118,11 @@
       <workItem from="1682489250993" duration="602000" />
       <workItem from="1682501002856" duration="504000" />
       <workItem from="1682509121681" duration="1086000" />
+      <workItem from="1682520277043" duration="1163000" />
+      <workItem from="1682521630211" duration="2673000" />
+      <workItem from="1682524443073" duration="16000" />
+      <workItem from="1682527121621" duration="414000" />
+      <workItem from="1682584188656" duration="2517000" />
     </task>
     <servers />
   </component>

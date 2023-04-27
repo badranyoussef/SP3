@@ -8,14 +8,14 @@ public abstract class Media {
     private String title;
     private List<String> categories;
     private float rating;
-    private int releaseYear;
+    private String releaseYear;
     private int id;
 
     //This counter will be used to count how many medias gets initialized and assign its value to the media ID
     private static int counter = 1;
 
     //Constructor for media that ensures initializing all required instance variables when a media is initialized
-    Media(String title, ArrayList<String> categories, float rating, int releaseYear) {
+    Media(String title, ArrayList<String> categories, float rating, String releaseYear) {
         this.title = title;
         this.categories = categories;
         this.rating = rating;

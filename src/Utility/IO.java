@@ -3,6 +3,7 @@ package Utility;
 
 import Entity.Media;
 import Entity.Movie;
+import Entity.Series;
 import Entity.User;
 
 import java.io.File;
@@ -12,26 +13,27 @@ import java.io.IOException;
 import java.util.*;
 
 
-
 public class IO {
     private File file;
     private Scanner scan;
     private Set<Media> setOfMedia = new HashSet<>();
+
     // A method to read the user data saved in the application
-    public List<String> readData(String path){
+    public List<String> readData(String path) {
         file = new File(path);
         List<String> data = new ArrayList<>();
-        try{
+        try {
             scan = new Scanner(file);
-            while(scan.hasNextLine()){
+            while (scan.hasNextLine()) {
                 String line = scan.nextLine();
                 data.add(line);
             }
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println("User data file was not found");
         }
         return data;
     }
+
     public Set<User> readUserData(String path) {
         file = new File(path);
         Set<User> data = new HashSet<>();
@@ -53,30 +55,35 @@ public class IO {
     public void saveUsers(String path, Set<User> userList) {
         FileWriter writer = null;
         try {
-            writer = new FileWriter(path, true);
+            writer = new FileWriter(path);
+            writer.write("Name,Username,Password\n");
             for (User u : userList) {
-                writer.write(u.getName() + "," + u.getUserName() + "," + u.getPassword() + u.getWatched() + "\n");
+                writer.write(u.getName() + "," + u.getUserName() + "," + u.getPassword() + "\n");
             }
             writer.close();
         } catch (IOException e) {
         }
     }
 
-    public Set<Media> readMovieData(String path) {
+    public Set<Media> readMediaData(String path) {
         File file = new File(path); // /src/Data/movies.txt
         try (Scanner scan = new Scanner(file)) {
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
-                String[] arrLine = line.split(";", 5);
-                if (arrLine.length >= 4) {
+                String[] arrLine = line.split(";");
+                if (arrLine.length >= 2) {
                     String title = arrLine[0].trim();
-                    int releaseYear = Integer.parseInt(arrLine[1].trim());
+                    String releaseYear = (arrLine[1].trim());
                     String stringOfCategories = arrLine[2].trim();
                     String[] arrCategories = stringOfCategories.split(", ", 5);
                     ArrayList<String> categories = new ArrayList<>(Arrays.asList(arrCategories));
                     String ratingStr = arrLine[3].trim().replace(",", ".");
                     float rating = Float.parseFloat(ratingStr);
-                    Movie m = new Movie(title, categories, rating, releaseYear);
+                    if (arrLine.length > 5) {
+                        Media m = new Series(title, categories, rating, releaseYear);
+                        setOfMedia.add(m);
+                    }
+                    Media m = new Movie(title, categories, rating, releaseYear);
                     setOfMedia.add(m);
                 }
             }
@@ -86,4 +93,6 @@ public class IO {
         }
         return setOfMedia;
     }
+
+
 }
