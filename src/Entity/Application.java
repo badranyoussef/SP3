@@ -31,12 +31,12 @@ public class Application {
 
     public void startMenu() {
         boolean isValidOption = true;
-            ui.displayMessage("Welcome to " + appName + "'s streaming service!\n\nChoose one of the following options:\n");
-            ui.displayMessage("1) to login.\n2) to sign up.\n3) to close the streaming service.\n\nType in your choice below:");
+        ui.displayMessage("Welcome to " + appName + "'s streaming service!\n\nChoose one of the following options:\n");
+        ui.displayMessage("1) to login.\n2) to sign up.\n3) to close the streaming service.\n\nType in your choice below:");
 
-            while (isValidOption) {
-                String input = ui.getInput("");
-                        switch (input) {
+        while (isValidOption) {
+            String input = ui.getInput("");
+            switch (input) {
                 case "1":
                     login();
                     isValidOption = false;
@@ -139,22 +139,22 @@ public class Application {
         }
 
 
-            if (loginValidator(u, p)) {
-                System.out.println("\nWelcome back " + u + ". You are now logged in!");
-                this.onlineUser = findUser(u);
-                mainMenu();
+        if (loginValidator(u, p)) {
+            System.out.println("\nWelcome back " + u + ". You are now logged in!");
+            this.onlineUser = findUser(u);
+            mainMenu();
+        } else {
+            String retry = ui.getInput("\nInvalid username or password. Do you want to try again? (Y/N)");
+            if (retry.equalsIgnoreCase("n")) {
+                System.out.println("Login canceled.\n");
+                startMenu();
+            } else if (retry.equalsIgnoreCase("y")) {
+                // Continue the outer while loop to prompt for username and password again
             } else {
-                String retry = ui.getInput("\nInvalid username or password. Do you want to try again? (Y/N)");
-                if (retry.equalsIgnoreCase("n")) {
-                    System.out.println("Login canceled.\n");
-                    startMenu();
-                } else if (retry.equalsIgnoreCase("y")) {
-                    // Continue the outer while loop to prompt for username and password again
-                } else {
-                    ui.displayMessage("I don't understand: " + retry);
-                }
+                ui.displayMessage("I don't understand: " + retry);
             }
         }
+    }
 
 
     //Main menu after logging in (under construction)
@@ -167,7 +167,7 @@ public class Application {
                 "5) see watched media\n" +
                 "6) Logout\n");
         boolean validInput = false;
-        while(!validInput) {
+        while (!validInput) {
             String input = ui.getInput("");
             switch (input) {
                 case "1":
@@ -265,26 +265,34 @@ public class Application {
             }
         }
     }
+
     public void chooseCategory() {
-        while (true) {
-            String input = ui.getInput("Type category ID:");
-            if (input.equalsIgnoreCase("x")) {
-                mainMenu();
-            }
-            int categoryID = Integer.parseInt(input);
-            if (categoryID >= 1 && categoryID <= categories.size()) {
-                String category = categories.get(categoryID - 1);
-                for (Media m : medias) {
-                    for (String s : m.getCategory()) {
-                        if (s.equals(category)) {
-                            ui.displayMessage(m.toString());
+        boolean isOptionValid = true;
+        while (isOptionValid) {
+            try {
+                String input = ui.getInput("Type category ID: 1-"+categories.size());
+
+                if (input.equalsIgnoreCase("x")) {
+                    mainMenu();
+                    isOptionValid = false;
+                }
+                int categoryID = Integer.parseInt(input);
+                if (categoryID >= 1 && categoryID <= categories.size()) {
+                    String category = categories.get(categoryID - 1);
+                    for (Media m : medias) {
+                        for (String s : m.getCategory()) {
+                            if (s.equals(category)) {
+                                ui.displayMessage(m.toString());
+                            }
                         }
                     }
+                    chooseMedia();
+                    isOptionValid = false;
+                    break;
                 }
-                chooseMedia();
-                break;
-            } else {
+            } catch (Exception e) {
                 ui.displayMessage("Invalid input. Please type a number between 1 and " + categories.size() + ", or X to go back to Main Menu.");
+                chooseCategory();
             }
         }
     }
@@ -297,6 +305,7 @@ public class Application {
         while (true) {
             String input = ui.getInput("");
             if (input.equals("1")) {
+                playMedia(m);
                 ui.displayMessage("the movie has finished");
                 mainMenu();
                 break;
