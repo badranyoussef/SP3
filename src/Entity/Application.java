@@ -20,7 +20,9 @@ public class Application {
     public Application(String appName) {
         this.appName = appName;
         this.users = io.readUserData("src/Data/userdata.csv");
-        this.medias = io.readMovieData("src/Data/movies.txt");
+        this.medias = io.readMediaData("src/Data/movies.txt");
+        Set<Media> series = io.readMediaData("src/Data/series.txt");
+        this.medias.addAll(series);
     }
 
     //Method to launch application
