@@ -80,7 +80,11 @@ public class IO {
                     String ratingStr = arrLine[3].trim().replace(",", ".");
                     float rating = Float.parseFloat(ratingStr);
                     if (arrLine.length > 5) {
-                        Media m = new Series(title, categories, rating, releaseYear);
+                        String[] splitSeasons = arrLine[4].trim().split(", ");
+                        int seasons = splitSeasons.length;
+                        String[] splitEpisode = splitSeasons[0].split("-");
+                        int episodes = Integer.parseInt(splitEpisode[1]);
+                        Media m = new Series(title, categories, rating, releaseYear, seasons, episodes);
                         setOfMedia.add(m);
                     }
                     Media m = new Movie(title, categories, rating, releaseYear);
