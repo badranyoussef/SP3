@@ -1,5 +1,7 @@
 package Entity;
 
+import java.util.Set;
+
 public class Episode {
 
     private int episodeNumber = episodeCounter;
@@ -17,7 +19,6 @@ public class Episode {
     public void setCounter(int c){
         this.episodeCounter = c;
     }
-
 
 
 }

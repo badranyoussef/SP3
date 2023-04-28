@@ -4,6 +4,7 @@ import Utility.IO;
 import Utility.UI;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -305,43 +306,60 @@ public class Application {
 
     public void mediaOptions(Media m) {
         ui.displayMessage(
-                "1) Start movie\n" +
+                "1) Start movie/serie\n" +
                         "2) Add movie to personal list\n" +
                         "3) Go back to Main Menu\n"+
                         "4) Show seasons");
-        while (true) {
+        boolean stopAsking = true;
+        while (stopAsking) {
             String input = ui.getInput("");
             if (input.equals("1")) {
                 playMedia(m);
                 ui.displayMessage("the movie has finished");
                 mainMenu();
+                stopAsking = false;
                 break;
             } else if (input.equals("2")) {
                 addMediaToPersonalList(m);
+                stopAsking = false;
                 break;
             } else if (input.equals("3")) {
                 mainMenu();
+                stopAsking = false;
                 break;
             } else if (input.equals("4")) {
 
                 if(m instanceof Series){
                     System.out.println(((Series) m).getSeasons());
-
-                    while (true) {
-                        String input2 = ui.getInput("\nWhich season would you like to watch? To go to main menu type X\n");
+                    boolean stop = true;
+                    while (stop) {
+                        input = ui.getInput("\nWhich season would you like to watch? To go to main menu type X\n");
 
                         Set<Season> seasonSet = ((Series) m).getSeasons();
                         for(Season s: seasonSet) {
-                            if (input2.equalsIgnoreCase(((Series) m).getSeasonNumber(s))){
+                            int i = Integer.parseInt(input);
 
-                                System.out.println("test"+((Series) m).getEpisodes());
-                            }else{
-                                System.out.println(s);
+
+                            if (i == (s.getSeasonNumber())){
+                                System.out.println("You have now chosen the following season: "+s.getSeasonNumber());
+                                System.out.println("The following season contains the following episodes: "+((Series) m).getEpisodes(s));
+
+                                List <Episode> chooseEpisode = ((Series) m).getEpisodes(s);
+                                input = ui.getInput("Which one?");
+
+
+                                int ii = Integer.parseInt(input);
+
+                                System.out.println("The following episode have been chosen: "+chooseEpisode.get(ii-1));
+                                playMedia(m);
+                                stop = false;
                             }
-
                         }
                     }
                 }
+                mainMenu();
+                stopAsking = false;
+
                 break;
             }else {
                 ui.displayMessage("I don't understand: " + input + ". Try again.");
@@ -359,9 +377,12 @@ public class Application {
 
     //Method to play the media
     public void playMedia(Media m) {
+
         System.out.println("The following media:" + m.getTitle() + " is playing!");
         onlineUser.addWatchedMedia(m);
-        mediaOptions(m);
+
+        System.out.println("The following media is done: "+m.getTitle());
+        mainMenu();
     }
 
     private Set<User> getUsers() {

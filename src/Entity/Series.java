@@ -37,9 +37,22 @@ public class Series extends Media {
     return seriesMap.keySet();
     }
 
-    public Set getEpisodes(){
-        return (Set) seriesMap.values();
+    public List<Episode> getEpisodes(Season s){
+
+        //this.seriesMap.containsKey(s);
+        //System.out.println(seriesMap.containsKey(s));
+
+
+        /*String s = "";
+        Collection <List<Episode>> episodes = seriesMap.containsKey(s);
+        for (List l : episodes) {
+            s = k;
+            //System.out.println("value: "+l);
+        }
+        return s;*/
+        return seriesMap.get(s);
     }
+
 
     public String getSeasonNumber(Season s){
         return seriesMap.get(s).toString();
@@ -50,6 +63,5 @@ public class Series extends Media {
     public String toString() {
         return super.toString() + ", Seasons: "+Integer.toString(seasons);
     }
-
 
 }

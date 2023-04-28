@@ -12,6 +12,11 @@ public class Season {
         seasonCounter++;
     }
 
+
+    public int getSeasonNumber() {
+        return seasonNumber;
+    }
+
     @Override
     public String toString() {
         return "Season: " + this.seasonNumber;
