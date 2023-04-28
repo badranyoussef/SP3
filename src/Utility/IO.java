@@ -79,12 +79,20 @@ public class IO {
                     ArrayList<String> categories = new ArrayList<>(Arrays.asList(arrCategories));
                     String ratingStr = arrLine[3].trim().replace(",", ".");
                     float rating = Float.parseFloat(ratingStr);
-                    if (arrLine.length > 5) {
-                        Media m = new Series(title, categories, rating, releaseYear);
+                    if (arrLine.length > 4) {
+                        String[] splitSeasons = arrLine[4].trim().split(", ");
+                        int seasons = splitSeasons.length;
+                        List<Integer> intOfEpisodes = new ArrayList<>();
+                        for(int i = 0 ; i < seasons; i++) {
+                            String[] splitEpisode = splitSeasons[i].split("-");
+                            intOfEpisodes.add(Integer.parseInt(splitEpisode[1]));
+                        }
+                        Media m = new Series(title, categories, rating, releaseYear, seasons, intOfEpisodes);
+                        setOfMedia.add(m);
+                    }else {
+                        Media m = new Movie(title, categories, rating, releaseYear);
                         setOfMedia.add(m);
                     }
-                    Media m = new Movie(title, categories, rating, releaseYear);
-                    setOfMedia.add(m);
                 }
             }
             return this.setOfMedia;

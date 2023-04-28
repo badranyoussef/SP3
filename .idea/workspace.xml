@@ -5,18 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64577a79-e5c1-47f5-aec6-f25936b61ab8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Entity/Series.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2023__21_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2023__21_28__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2023__21_28__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2023__21_28__Changes_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Entity/SeriesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SP3/Client/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Client/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SP3/Documents/classDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Documents/classDiagram.puml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SP3/Entity/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Entity/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SP3/Entity/Media.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Entity/Media.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SP3/Entity/Series.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Entity/Series.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SP3/Utility/IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SP3/Utility/IO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Data/series.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/series.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Media.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Series.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Series.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utility/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utility/IO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +31,7 @@
         <option value="UML Sequence" />
         <option value="UML Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -61,29 +63,37 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Class&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/baban/OneDrive/Skrivebord/GitHub/Flow 4/SP3&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultPlantUmlFileTemplate": "UML Class",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/baban/OneDrive/Skrivebord/GitHub/Flow 4/SP3",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\baban\OneDrive\Skrivebord\GitHub\Flow 4\SP3\src" />
       <recent name="$PROJECT_DIR$/data" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="Entity" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Client.Main" />
       <module name="SP3" />
@@ -91,6 +101,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SeriesTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SP3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Entity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Entity" />
+      <option name="MAIN_CLASS_NAME" value="Entity.SeriesTest" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SeriesTest.test1" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -142,5 +173,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Utility/IO.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

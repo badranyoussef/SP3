@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+//TESTETESTSTESTS
 
 public class Application {
     private Set<User> users;
@@ -173,11 +174,15 @@ public class Application {
             switch (input) {
                 case "1":
                     for (Media m : medias) {
-                        System.out.println(m);
+                        if (m instanceof Series) {
+                            System.out.println((Series)m);
+                        }
+                         else{System.out.println(m);}
                     }
                     chooseMedia();
                     validInput = true;
                     break;
+
                 case "2":
                     int addCategoryID = 1;
                     for (String s : categories) {
@@ -302,7 +307,8 @@ public class Application {
         ui.displayMessage(
                 "1) Start movie\n" +
                         "2) Add movie to personal list\n" +
-                        "3) Go back to Main Menu");
+                        "3) Go back to Main Menu\n"+
+                        "4) Show seasons");
         while (true) {
             String input = ui.getInput("");
             if (input.equals("1")) {
@@ -316,7 +322,13 @@ public class Application {
             } else if (input.equals("3")) {
                 mainMenu();
                 break;
-            } else {
+            } else if (input.equals("4")) {
+
+                if(m instanceof Series){
+                    System.out.println("hej");
+                }
+                break;
+            }else {
                 ui.displayMessage("I don't understand: " + input + ". Try again.");
             }
         }

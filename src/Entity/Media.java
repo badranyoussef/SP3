@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public abstract class Media {
     private String title;
-    private List<String> categories;
+    private ArrayList<String> categories;
     private float rating;
     private String releaseYear;
     private int id;
@@ -32,8 +32,17 @@ public abstract class Media {
         return title;
     }
 
-    public List<String> getCategory() {
+    public ArrayList<String> getCategory() {
         return categories;
+    }
+
+
+    public float getRating() {
+        return rating;
+    }
+
+    public String getReleaseYear() {
+        return releaseYear;
     }
 
     //Overriding toString to return a nice String all details of a media
