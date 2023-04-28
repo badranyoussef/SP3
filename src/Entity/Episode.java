@@ -13,4 +13,11 @@ public class Episode {
     public String toString(){
         return "Episode: "+this.episodeNumber;
     }
+
+    public void setCounter(int c){
+        this.episodeCounter = c;
+    }
+
+
+
 }

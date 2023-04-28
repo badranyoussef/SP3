@@ -1,10 +1,7 @@
 package Entity;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Series extends Media {
 
@@ -12,6 +9,8 @@ public class Series extends Media {
 
     private int seasons;
 
+    private Episode e;
+    private Season s;
 
     //Public constructor to initialize movie instances with 4 parameters that extends from its super class (media)
     public Series(String movieTitle, ArrayList<String> movieCategories, float movieRating, String movieReleaseYear, int seasons, List<Integer> episodes) {
@@ -19,22 +18,38 @@ public class Series extends Media {
         this.seasons = seasons;
 
         for (int i = 0; i < seasons; i++) {
-            Season s1 = new Season();
+            s = new Season();
             List<Episode> listOfEpisode = new ArrayList<>();
-            for (int j = 0; j < episodes.size(); j++) {
-                Episode e = new Episode();
+            for (int k = 0; k < episodes.get(i); k++) {
+                e = new Episode();
                 listOfEpisode.add(e);
+
             }
-            this.seriesMap.put(s1, listOfEpisode);
+            this.seriesMap.put(s, listOfEpisode);
+            e.setCounter(1);
         }
+        s.setSeasonCounter(1);
+        //System.out.println(seriesMap);
     }
 
-    public Map<Season, List<Episode>> getSeriesMap() {
-        return seriesMap;
+
+    public Set getSeasons(){
+    return seriesMap.keySet();
     }
+
+    public Set getEpisodes(){
+        return (Set) seriesMap.values();
+    }
+
+    public String getSeasonNumber(Season s){
+        return seriesMap.get(s).toString();
+    }
+
 
     @Override
     public String toString() {
-        return super.toString() + seasons;
+        return super.toString() + ", Seasons: "+Integer.toString(seasons);
     }
+
+
 }

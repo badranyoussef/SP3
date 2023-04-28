@@ -1,5 +1,7 @@
 package Entity;
 
+import java.util.Objects;
+
 public class Season {
 
     private int seasonNumber = seasonCounter;
@@ -14,4 +16,21 @@ public class Season {
     public String toString() {
         return "Season: " + this.seasonNumber;
     }
+
+    public void setSeasonCounter(int s){
+        this.seasonCounter = s;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Season season)) return false;
+        return seasonNumber == season.seasonNumber;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(seasonNumber);
+    }
+
 }

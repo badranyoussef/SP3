@@ -325,7 +325,22 @@ public class Application {
             } else if (input.equals("4")) {
 
                 if(m instanceof Series){
-                    System.out.println("hej");
+                    System.out.println(((Series) m).getSeasons());
+
+                    while (true) {
+                        String input2 = ui.getInput("\nWhich season would you like to watch? To go to main menu type X\n");
+
+                        Set<Season> seasonSet = ((Series) m).getSeasons();
+                        for(Season s: seasonSet) {
+                            if (input2.equalsIgnoreCase(((Series) m).getSeasonNumber(s))){
+
+                                System.out.println("test"+((Series) m).getEpisodes());
+                            }else{
+                                System.out.println(s);
+                            }
+
+                        }
+                    }
                 }
                 break;
             }else {
