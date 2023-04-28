@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64577a79-e5c1-47f5-aec6-f25936b61ab8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Data/userdata.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/userdata.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Episode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Episode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Season.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Season.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Series.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Series.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2023__21_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2023__21_28__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2023__21_28__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_04_2023__21_28__Changes_1.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +143,7 @@
       <workItem from="1682527121621" duration="414000" />
       <workItem from="1682584188656" duration="2517000" />
       <workItem from="1682662100481" duration="11006000" />
-      <workItem from="1682673465561" duration="5330000" />
+      <workItem from="1682673465561" duration="5575000" />
     </task>
     <servers />
   </component>
