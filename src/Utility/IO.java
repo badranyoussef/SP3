@@ -34,6 +34,7 @@ public class IO {
         return data;
     }
 
+    //A method to read user data
     public Set<User> readUserData(String path) {
         file = new File(path);
         Set<User> data = new HashSet<>();
@@ -65,6 +66,7 @@ public class IO {
         }
     }
 
+    //A method to read media data
     public Set<Media> readMediaData(String path) {
         File file = new File(path); // /src/Data/movies.txt
         try (Scanner scan = new Scanner(file)) {
@@ -101,6 +103,4 @@ public class IO {
         }
         return setOfMedia;
     }
-
-
 }

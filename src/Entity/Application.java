@@ -32,11 +32,10 @@ public class Application {
         startMenu();
     }
 
-    public void startMenu() {
+    private void startMenu() {
         boolean isValidOption = true;
         ui.displayMessage("Welcome to " + appName + "'s streaming service!\n\nChoose one of the following options:\n");
         ui.displayMessage("1) to login.\n2) to sign up.\n3) to close the streaming service.\n\nType in your choice below:");
-
         while (isValidOption) {
             String input = ui.getInput("");
             switch (input) {
@@ -60,14 +59,13 @@ public class Application {
     }
 
     //Method that creates new User to Application
-    public void createUser() {
+    private void createUser() {
         String name = ui.getInput("Enter your name: (Back to Start Menu type: X)");
         if (name.equalsIgnoreCase("x")) {
             startMenu();
         }
         String username = "";
         String password = "";
-
         while (true) {
             username = ui.getInput("Create a username - it must be at least 6 characters long. (Back to Start Menu type: X):");
             if (username.equalsIgnoreCase("x")) {
@@ -98,7 +96,7 @@ public class Application {
     }
 
     //Validator to check if login is possible
-    public boolean loginValidator(String username, String password) {
+    private boolean loginValidator(String username, String password) {
         for (User u : this.users) {
             if (u.getUserName().equals(username) && u.getPassword().equals(password)) {
                 return true;
@@ -107,7 +105,8 @@ public class Application {
         return false;
     }
 
-    public User findUser(String username) {
+    //Method to find user
+    private User findUser(String username) {
         for (User u : this.users) {
             if (u.getUserName().equals(username)) {
                 return u;
@@ -116,11 +115,10 @@ public class Application {
         return this.onlineUser;
     }
 
-    public void login() {
+    private void login() {
         String u = "";
         String p = "";
         boolean validInput = false;
-
         while (!validInput) {
             u = ui.getInput("Type username: (Back to Start Menu type: X)");
             if (u.equalsIgnoreCase("x")) {
@@ -140,8 +138,6 @@ public class Application {
                 ui.displayMessage("Please enter a valid username and password.\n");
             }
         }
-
-
         if (loginValidator(u, p)) {
             System.out.println("\nWelcome back " + u + ". You are now logged in!");
             this.onlineUser = findUser(u);
@@ -161,7 +157,7 @@ public class Application {
 
 
     //Main menu after logging in (under construction)
-    public void mainMenu() {
+    private void mainMenu() {
         ui.displayMessage("\n(Main menu)\nWhich of the following do you want to do?\n" +
                 "1) See all media available\n" +
                 "2) Pick a category\n" +
@@ -220,14 +216,16 @@ public class Application {
         }
     }
 
-    public void printMediaList(ArrayList<Media> m) {
+    //Method to print out the media list
+    private void printMediaList(ArrayList<Media> m) {
         System.out.println(this.onlineUser.getName() + "'s  is shown below: ");
         for (Media mm : m) {
             System.out.println(mm);
         }
     }
 
-    public Media search(String input) {
+    //Method to search for a media
+    private Media search(String input) {
         Media notFound = null;
         for (Media m : medias) {
             if (m.getTitle().equalsIgnoreCase(input)) {
@@ -239,13 +237,14 @@ public class Application {
         return notFound;
     }
 
-    public void logout() {
+    //Method to logout
+    private void logout() {
         ui.displayMessage("Thank you for using our service! See you soon!");
         startMenu();
     }
 
     //Method to choose a media
-    public void chooseMedia() {
+    private void chooseMedia() {
         String input;
         boolean validInput = false;
         while (!validInput) {
@@ -273,12 +272,12 @@ public class Application {
         }
     }
 
-    public void chooseCategory() {
+    //Method to choose category
+    private void chooseCategory() {
         boolean isOptionValid = true;
         while (isOptionValid) {
             try {
                 String input = ui.getInput("Type category ID: 1-"+categories.size());
-
                 if (input.equalsIgnoreCase("x")) {
                     mainMenu();
                     isOptionValid = false;
@@ -304,7 +303,8 @@ public class Application {
         }
     }
 
-    public void mediaOptions(Media m) {
+    //Method to get media options
+    private void mediaOptions(Media m) {
         ui.displayMessage(
                 "1) Start movie/serie\n" +
                         "2) Add movie to personal list\n" +
@@ -328,28 +328,20 @@ public class Application {
                 stopAsking = false;
                 break;
             } else if (input.equals("4")) {
-
                 if(m instanceof Series){
                     System.out.println(((Series) m).getSeasons());
                     boolean stop = true;
                     while (stop) {
                         input = ui.getInput("\nWhich season would you like to watch? To go to main menu type X\n");
-
                         Set<Season> seasonSet = ((Series) m).getSeasons();
                         for(Season s: seasonSet) {
                             int i = Integer.parseInt(input);
-
-
                             if (i == (s.getSeasonNumber())){
                                 System.out.println("You have now chosen the following season: "+s.getSeasonNumber());
                                 System.out.println("The following season contains the following episodes: "+((Series) m).getEpisodes(s));
-
                                 List <Episode> chooseEpisode = ((Series) m).getEpisodes(s);
                                 input = ui.getInput("Which one?");
-
-
                                 int ii = Integer.parseInt(input);
-
                                 System.out.println("The following episode have been chosen: "+chooseEpisode.get(ii-1));
                                 playMedia(m);
                                 stop = false;
@@ -359,7 +351,6 @@ public class Application {
                 }
                 mainMenu();
                 stopAsking = false;
-
                 break;
             }else {
                 ui.displayMessage("I don't understand: " + input + ". Try again.");
@@ -367,24 +358,22 @@ public class Application {
         }
     }
 
-
     //Method ot add media to personal list
-    public void addMediaToPersonalList(Media m) {
+    private void addMediaToPersonalList(Media m) {
         this.onlineUser.addSavedMedia(m);
         ui.displayMessage("The following have been added: " + "\n" + m.getTitle());
         mediaOptions(m);
     }
 
     //Method to play the media
-    public void playMedia(Media m) {
-
+    private void playMedia(Media m) {
         System.out.println("The following media:" + m.getTitle() + " is playing!");
         onlineUser.addWatchedMedia(m);
-
-        System.out.println("The following media is done: "+m.getTitle());
+        System.out.println("The following media is done playing: "+m.getTitle());
         mainMenu();
     }
 
+    //Method to get all the users
     private Set<User> getUsers() {
         return users;
     }
