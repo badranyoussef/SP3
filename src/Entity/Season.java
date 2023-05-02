@@ -22,11 +22,11 @@ public class Season {
         return "Season: " + this.seasonNumber;
     }
 
-    //Method to set the season counter
+    //Method to reset the season counter everytime we start creating a new series
     public void setSeasonCounter(int s){
         this.seasonCounter = s;
     }
-
+    //Override eaquals() and hashCode() to sort season by seasonNumber when printing
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

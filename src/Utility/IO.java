@@ -11,8 +11,6 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
-
-
 public class IO {
     private File file;
     private Scanner scan;
@@ -68,30 +66,33 @@ public class IO {
 
     //A method to read media data
     public Set<Media> readMediaData(String path) {
-        File file = new File(path); // /src/Data/movies.txt
+        File file = new File(path);
         try (Scanner scan = new Scanner(file)) {
             while (scan.hasNextLine()) {
-                String line = scan.nextLine();
-                String[] arrLine = line.split(";");
-                if (arrLine.length >= 2) {
-                    String title = arrLine[0].trim();
-                    String releaseYear = (arrLine[1].trim());
-                    String stringOfCategories = arrLine[2].trim();
-                    String[] arrCategories = stringOfCategories.split(", ", 5);
-                    ArrayList<String> categories = new ArrayList<>(Arrays.asList(arrCategories));
-                    String ratingStr = arrLine[3].trim().replace(",", ".");
+                String line = scan.nextLine(); // Scan next line
+                String[] arrLine = line.split(";"); //Split line by semicolon
+                if (arrLine.length >= 2) { //Online do this id there were something to split
+                    String title = arrLine[0].trim(); //Save Media title from first index
+                    String releaseYear = (arrLine[1].trim()); //Save Media releaseYear from second index
+                    String stringOfCategories = arrLine[2].trim(); //Save Media String of categories from third index
+                    String[] arrCategories = stringOfCategories.split(", "); //Split categories at comma+space
+                    ArrayList<String> categories = new ArrayList<>(Arrays.asList(arrCategories)); //Add all categories from String[] to ArrayList
+                    String ratingStr = arrLine[3].trim().replace(",", "."); //Save Media rating from fourth index
                     float rating = Float.parseFloat(ratingStr);
-                    if (arrLine.length > 4) {
-                        String[] splitSeasons = arrLine[4].trim().split(", ");
-                        int seasons = splitSeasons.length;
-                        List<Integer> intOfEpisodes = new ArrayList<>();
+                    if (arrLine.length > 4) { //If arrLine longer than 4 = Series, then do:
+                        String[] splitSeasons = arrLine[4].trim().split(", "); //Split seasons from fifth index by comma+space
+                        int seasons = splitSeasons.length; //Save number of seasons
+                        List<Integer> numOfEpisodes = new ArrayList<>();
+                        //For every season separate the number of episodes
                         for(int i = 0 ; i < seasons; i++) {
-                            String[] splitEpisode = splitSeasons[i].split("-");
-                            intOfEpisodes.add(Integer.parseInt(splitEpisode[1]));
+                            String[] splitEpisode = splitSeasons[i].split("-"); //Split number of episodes from season number
+                            numOfEpisodes.add(Integer.parseInt(splitEpisode[1])); //add number of episodes to ArrayList
                         }
-                        Media m = new Series(title, categories, rating, releaseYear, seasons, intOfEpisodes);
+                        //Create new Series()
+                        Media m = new Series(title, categories, rating, releaseYear, seasons, numOfEpisodes);
                         setOfMedia.add(m);
                     }else {
+                        //Or create new Movie()
                         Media m = new Movie(title, categories, rating, releaseYear);
                         setOfMedia.add(m);
                     }

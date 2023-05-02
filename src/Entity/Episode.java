@@ -1,9 +1,6 @@
 package Entity;
 
-import java.util.Set;
-
 public class Episode {
-
     private int episodeNumber = episodeCounter;
     private static int episodeCounter = 1;
     public Episode(){
@@ -15,7 +12,7 @@ public class Episode {
     public String toString(){
         return "Episode: "+this.episodeNumber;
     }
-
+    //This method is used to reset episodeCounter everytime we start creating a new season
     public void setCounter(int c){
         this.episodeCounter = c;
     }
