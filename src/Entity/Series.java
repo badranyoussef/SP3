@@ -8,8 +8,8 @@ public class Series extends Media {
     private Season season;
 
     //Public constructor to initialize movie instances with 6 parameters that extends from its super class (media)
-    public Series(String movieTitle, ArrayList<String> movieCategories, float movieRating, String movieReleaseYear, int seasons, List<Integer> episodes) {
-        super(movieTitle, movieCategories, movieRating, movieReleaseYear);
+    public Series(String seriesTitle, ArrayList<String> seriesCategories, float seriesRating, String seriesReleaseYear, int seasons, List<Integer> episodes) {
+        super(seriesTitle, seriesCategories, seriesRating, seriesReleaseYear);
         this.seasons = seasons;
         //When reading our Series data we get:
         //1. A number for how many seasons exists
