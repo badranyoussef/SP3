@@ -100,7 +100,7 @@ public class IO {
             }
             return this.setOfMedia;
         } catch (FileNotFoundException e) {
-            System.out.println("The file movies.txt was not found: " + e.getMessage());
+            System.out.println("The file movies.csv was not found: " + e.getMessage());
         }
         return setOfMedia;
     }

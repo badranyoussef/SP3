@@ -12,15 +12,15 @@ public class Application {
     private IO io = new IO();
     private UI ui = new UI();
     private User onlineUser; //To recognize which user is online and load/add from/to their lists
-    private List<String> categories = io.readData("src/Data/categories.txt"); //We read from file/DB so we can add new categories in future
+    private List<String> categories = io.readData("src/Data/categories.csv"); //We read from file/DB so we can add new categories in future
     private String appName;
     //A new application for now just need a name in the constructor
     //Maybe it should take a set of data, as data can be different from app to app
     public Application(String appName) {
         this.appName = appName;
         this.users = io.readUserData("src/Data/userdata.csv");
-        this.medias = io.readMediaData("src/Data/movies.txt"); //First read movie data and add to our Media set
-        Set<Media> series = io.readMediaData("src/Data/series.txt"); //Then read series data and add to temp set
+        this.medias = io.readMediaData("src/Data/movies.csv"); //First read movie data and add to our Media set
+        Set<Media> series = io.readMediaData("src/Data/series.csv"); //Then read series data and add to temp set
         this.medias.addAll(series); //Then add all series to our Media set
     }
 
