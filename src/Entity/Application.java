@@ -1,6 +1,7 @@
 package Entity;
 
-import Utility.IO;
+import Utility.DBConnector;
+import Utility.FileIO;
 import Utility.UI;
 
 import java.util.ArrayList;
@@ -9,8 +10,11 @@ import java.util.Set;
 public class Application {
     private Set<User> users; //We use set to be able get users in constant time
     private Set<Media> medias; //We use set to be able get medias in constant time
-    private IO io = new IO();
+    private FileIO io = new FileIO();
     private UI ui = new UI();
+
+    private DBConnector dbConnector = new DBConnector();
+
     private User onlineUser; //To recognize which user is online and load/add from/to their lists
     private List<String> categories = io.readData("src/Data/categories.txt"); //We read from file/DB so we can add new categories in future
     private String appName;
@@ -18,10 +22,15 @@ public class Application {
     //Maybe it should take a set of data, as data can be different from app to app
     public Application(String appName) {
         this.appName = appName;
+
         this.users = io.readUserData("src/Data/userdata.csv");
-        this.medias = io.readMediaData("src/Data/movies.txt"); //First read movie data and add to our Media set
-        Set<Media> series = io.readMediaData("src/Data/series.txt"); //Then read series data and add to temp set
-        this.medias.addAll(series); //Then add all series to our Media set
+        //this.medias = io.readMediaData("src/Data/movies.csv"); //First read movie data and add to our Media set
+        //Set<Media> series = io.readMediaData("src/Data/series.csv"); //Then read series data and add to temp set
+
+        //this.medias.addAll(series); //Then add all series to our Media set
+
+        this.medias = dbConnector.readMediaData();
+
     }
 
     //Method to launch application

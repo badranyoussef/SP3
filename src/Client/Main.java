@@ -1,7 +1,6 @@
 package Client;
 
 import Entity.Application;
-import Utility.IO;
 
 public class Main {
     public static void main(String[] args) {
