@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64577a79-e5c1-47f5-aec6-f25936b61ab8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Utility/DBConnector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Utility/FileIO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SP3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SP3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Data/movies.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/movies.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Data/series.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/series.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utility/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utility/IO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utility/DBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utility/DBConnector.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +157,7 @@
       <workItem from="1682968292957" duration="4499000" />
       <workItem from="1683017688943" duration="1105000" />
       <workItem from="1683032919085" duration="1411000" />
-      <workItem from="1683097492464" duration="11977000" />
+      <workItem from="1683097492464" duration="12803000" />
     </task>
     <servers />
   </component>
@@ -188,10 +181,14 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Utility/DBConnector.java</url>
-          <line>137</line>
-          <option name="timeStamp" value="7" />
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Entity/Movie.java</url>
+          <line>5</line>
+          <properties class="Entity.Movie" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

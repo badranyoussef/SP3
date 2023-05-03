@@ -135,7 +135,7 @@ public class DBConnector implements IO {
                     setOfMedia.add(m);
                 } else {
                     //Create new Series()
-                    String[] splitSeasons = stringOfSeasons.trim().split(", "); //Split seasons from fifth index by comma+space
+                    String[] splitSeasons = stringOfSeasons.trim().split(". "); //Split seasons from fifth index by comma+space
                     int seasons = splitSeasons.length; //Save number of seasons
                     List<Integer> numOfEpisodes = new ArrayList<>();
 
@@ -150,9 +150,8 @@ public class DBConnector implements IO {
                 }
 
                 //System.out.println("ID:" + id + ") " + title + ": " + releaseYear + ": " + stringOfCategories + ": " + stringRating);
-                return this.setOfMedia;
+                //return this.setOfMedia;
             }
-            //return this.setOfMedia;
             //catch (Exception e) {
             //  System.out.println("The file movies.csv was not found: " + e.getMessage());
             //}
