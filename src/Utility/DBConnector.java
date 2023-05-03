@@ -15,7 +15,7 @@ public class DBConnector implements IO {
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "Ys240514";
+    static final String PASS = "indtast din kode her";
 
     private Set<Media> setOfMedia = new HashSet<>();
 
