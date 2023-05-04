@@ -89,6 +89,12 @@ public class FileIO implements IO{
      */
 
     // A method to save new users
+
+    public void saveUsers(String name, String userName, String password){
+
+    }
+
+    /*
     @Override
     public void saveUsers(String path, Set<User> userList) {
         FileWriter writer = null;
@@ -102,6 +108,8 @@ public class FileIO implements IO{
         } catch (IOException e) {
         }
     }
+
+     */
 
     //A method to read media data
 

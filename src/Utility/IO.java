@@ -9,7 +9,7 @@ import java.util.Set;
 public interface IO {
     public List<String> readCategoryList();
     public Set<User> readUserData();
-    public void saveUsers(String path, Set<User> userList);
+    public void saveUsers(String name, String userName, String password);
     public Set<Media> readMediaData();
 
 }

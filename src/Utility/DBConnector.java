@@ -144,8 +144,55 @@ public class DBConnector implements IO {
     }
 
     @Override
-    public void saveUsers(String path, Set<User> userList) {
+    public void saveUsers(String name, String userName, String password) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try {
+            //STEP 1: Register JDBC driver
+            Class.forName("com.mysql.jdbc.Driver");
 
+            //STEP 2: Open a connection
+            System.out.println("Connecting to user database...");
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+            //STEP 3: Execute a query
+            System.out.println("Creating statement...");
+
+            //stmt = conn.createStatement();
+            String query = "INSERT INTO userdata VALUES (?,?,?)";
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, name);
+            stmt.setString(2, userName);
+            stmt.setString(3, password);
+
+            //STEP 4: insert data to database from result set
+            stmt.execute();
+
+            //STEP 5: Clean-up environment
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException se) {
+            //Handle errors for JDBC
+            se.printStackTrace();
+        } catch (
+                Exception e) {
+            //Handle errors for Class.forName
+            e.printStackTrace();
+        } finally {
+            //finally block used to close resources
+            try {
+                if (stmt != null)
+                    stmt.close();
+            } catch (SQLException se2) {
+            }// nothing we can do
+            try {
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }//end finally try
+        }//end try
     }
 
     @Override

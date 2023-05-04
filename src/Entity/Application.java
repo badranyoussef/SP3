@@ -104,7 +104,9 @@ public class Application {
         //Creates new user with valid input and initializes onlineUser
         this.onlineUser = new User(name, username, password);
         getUsers().add(onlineUser); //Adds new user to User Set
-        io.saveUsers("src/Data/userdata.csv", this.users); //Adds new user to file/DB
+
+        //io.saveUsers("src/Data/userdata.csv", this.users); //Adds new user to file/DB
+        dbConnector.saveUsers(name, username,password);
         ui.displayMessage("Welcome onboard " + name + ". Thanks for choosing our service\n");
         mainMenu();
     }
