@@ -11,15 +11,19 @@ import java.util.*;
 public class DBConnector implements IO {
 
     // database URL
-    static final String DB_URL = "jdbc:mysql://localhost/media";
+    static final String DB_URL = "jdbc:mysql://34.141.56.218/medias";
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "indtast din kode her";
+    static final String PASS = "LAHY-Dat23!";
 
     private Set<Media> setOfMedia = new HashSet<>();
 
-    public int readPopulation(String city) {
+
+    @Override
+    public List<String> readCategoryList() {
+
+        List<String> data = new ArrayList<>();
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -28,33 +32,35 @@ public class DBConnector implements IO {
             Class.forName("com.mysql.jdbc.Driver");
 
             //STEP 2: Open a connection
-            System.out.println("Connecting to database...");
+            System.out.println("Connecting to category database...");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
             //STEP 3: Execute a query
             System.out.println("Creating statement...");
-            String sql = "SELECT population FROM world.city WHERE name = ?";
+            String sql = "SELECT * FROM medias.categories";
             stmt = conn.prepareStatement(sql);
 
-            stmt.setString(1, city);
-
-            ResultSet rs = stmt.executeQuery();
+            ResultSet rs = stmt.executeQuery(sql);
 
             //STEP 4: Extract data from result set
+
             while (rs.next()) {
                 //Retrieve by column name
 
-                return rs.getInt("Population");
+                String category = rs.getString("categories");
+                data.add(category);
 
             }
             //STEP 5: Clean-up environment
             rs.close();
             stmt.close();
             conn.close();
+            return data;
         } catch (SQLException se) {
             //Handle errors for JDBC
             se.printStackTrace();
-        } catch (Exception e) {
+        } catch (
+                Exception e) {
             //Handle errors for Class.forName
             e.printStackTrace();
         } finally {
@@ -71,18 +77,69 @@ public class DBConnector implements IO {
                 se.printStackTrace();
             }//end finally try
         }//end try
-        return 0;
 
-
-    }
-
-    @Override
-    public List<String> readData(String path) {
         return null;
     }
 
     @Override
-    public Set<User> readUserData(String path) {
+    public Set<User> readUserData() {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try {
+            //STEP 1: Register JDBC driver
+            Class.forName("com.mysql.jdbc.Driver");
+
+            //STEP 2: Open a connection
+            System.out.println("Connecting to user database...");
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+            //STEP 3: Execute a query
+            System.out.println("Creating statement...");
+            String sql = "SELECT * FROM medias.userdata";
+            stmt = conn.prepareStatement(sql);
+
+            ResultSet rs = stmt.executeQuery(sql);
+
+            //STEP 4: Extract data from result set
+            Set<User> data = new HashSet<>();
+
+            while (rs.next()) {
+                //Retrieve by column name
+
+                String name = rs.getString("name");
+                String userName = rs.getString("username");
+                String password = rs.getString("password");
+
+                data.add(new User(name, userName, password));
+
+            }
+            //STEP 5: Clean-up environment
+            rs.close();
+            stmt.close();
+            conn.close();
+            return data;
+        } catch (SQLException se) {
+            //Handle errors for JDBC
+            se.printStackTrace();
+        } catch (
+                Exception e) {
+            //Handle errors for Class.forName
+            e.printStackTrace();
+        } finally {
+            //finally block used to close resources
+            try {
+                if (stmt != null)
+                    stmt.close();
+            } catch (SQLException se2) {
+            }// nothing we can do
+            try {
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }//end finally try
+        }//end try
+
         return null;
     }
 
@@ -100,12 +157,12 @@ public class DBConnector implements IO {
             Class.forName("com.mysql.jdbc.Driver");
 
             //STEP 2: Open a connection
-            System.out.println("Connecting to database...");
+            System.out.println("Connecting to media database...");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
             //STEP 3: Execute a query
             System.out.println("Creating statement...");
-            String sql = "SELECT * FROM media.movies UNION select * from media.series;";
+            String sql = "SELECT * FROM medias.movies UNION select * from medias.series;";
             stmt = conn.prepareStatement(sql);
 
             ResultSet rs = stmt.executeQuery(sql);
@@ -148,14 +205,7 @@ public class DBConnector implements IO {
                     Media m = new Series(title, categories, rating, releaseYear, seasons, numOfEpisodes);
                     setOfMedia.add(m);
                 }
-
-                //System.out.println("ID:" + id + ") " + title + ": " + releaseYear + ": " + stringOfCategories + ": " + stringRating);
-                //return this.setOfMedia;
             }
-            //catch (Exception e) {
-            //  System.out.println("The file movies.csv was not found: " + e.getMessage());
-            //}
-
             //STEP 5: Clean-up environment
             rs.close();
             stmt.close();

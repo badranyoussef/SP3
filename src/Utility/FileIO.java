@@ -17,8 +17,14 @@ public class FileIO implements IO{
     private Set<Media> setOfMedia = new HashSet<>();
 
     // A method to read the user data saved in the application
-    @Override
-    public List<String> readData(String path) {
+
+
+    public List<String> readCategoryList() {
+        return null;
+    }
+
+    /*
+    public List<String> readCategoryList(String path) {
         file = new File(path);
         List<String> data = new ArrayList<>();
         try {
@@ -33,7 +39,35 @@ public class FileIO implements IO{
         return data;
     }
 
+    public List<String> readCategoryList() {
+        return null;
+    }
+    /*
+    @Override
+    public List<String> readCategoryList(String path) {
+        file = new File(path);
+        List<String> data = new ArrayList<>();
+        try {
+            scan = new Scanner(file);
+            while (scan.hasNextLine()) {
+                String line = scan.nextLine();
+                data.add(line);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("User data file was not found");
+        }
+        return data;
+    }
+
+     */
+
     //A method to read user data
+
+    public Set<User> readUserData() {
+        return null;
+    }
+
+    /*
     @Override
     public Set<User> readUserData(String path) {
         file = new File(path);
@@ -51,6 +85,8 @@ public class FileIO implements IO{
         }
         return data;
     }
+
+     */
 
     // A method to save new users
     @Override

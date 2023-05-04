@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Set;
 
 public interface IO {
-    public List<String> readData(String path);
-    public Set<User> readUserData(String path);
+    public List<String> readCategoryList();
+    public Set<User> readUserData();
     public void saveUsers(String path, Set<User> userList);
     public Set<Media> readMediaData();
 
